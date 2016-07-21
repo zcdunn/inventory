@@ -16,6 +16,11 @@ myApp.controller('InventoryController', function($scope, $location, inventorySer
             $location.path('/inventory/new');
         };
 
+        $scope.viewInventory = function(inv) {
+            $scope.inventory = inv;
+            $location.path('/inventory/view');
+        };
+
         $scope.addInventory = function() {
             $scope.inventories.push($scope.inventory);
             inventoryService.putInventories($scope.inventories);
