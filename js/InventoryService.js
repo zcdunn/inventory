@@ -7,7 +7,7 @@ myApp.service('inventoryService', function($http) {
         return this.inventory;
     };
 
-    this.loadInventories = function($http) {
+    this.loadInventories = function() {
         var invStr = localStorage.getItem('inventories'), ret;
         if(invStr) {
             ret = new Promise(function(resolve, reject) {
