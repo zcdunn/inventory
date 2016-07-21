@@ -15,7 +15,10 @@ myApp.service('inventoryService', function($http) {
             });
         }
         else {
-            ret = $http.get('inventories.json');
+            ret = $http.get('inventories.json')
+                        .then(function(res) {
+                           return res.data;
+                        });
         }
 
         return ret;
