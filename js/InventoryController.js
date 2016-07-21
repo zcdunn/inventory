@@ -13,12 +13,13 @@ myApp.controller('InventoryController', function($scope, $location, inventorySer
 
         $scope.newInventory = function() {
             $scope.inventory = { items: [] };
-            $location.path('/inventory/new');
+            $location.path('/new');
         };
 
         $scope.viewInventory = function(inv) {
+            console.log("Inventory:", inv);
             $scope.inventory = inv;
-            $location.path('/inventory/view');
+            $location.path('/view');
         };
 
         $scope.addInventory = function() {
@@ -28,7 +29,7 @@ myApp.controller('InventoryController', function($scope, $location, inventorySer
 
         $scope.editInventory = function(inv) {
             $scope.inventory = inv;
-            $location.path('/inventory/edit');
+            $location.path('/edit');
         };
 
         $scope.newItem = function() {

@@ -1,19 +1,19 @@
 var myApp = angular.module('inventory', [ 'ngRoute' ]);
 myApp.config(function($routeProvider, $locationProvider) {
     $routeProvider
-        .when('/inventory', {
+        .when('/', {
             templateUrl: 'views/allInventories.html',
             controller: 'InventoryController'
         })
-        .when('/inventory/edit', {
+        .when('/edit', {
             templateUrl: 'views/editInventory.html',
             controller: 'InventoryController'
         })
-        .when('/inventory/new', {
+        .when('/new', {
             templateUrl: 'views/editInventory.html',
             controller: 'InventoryController'
         })
-        .when('/inventory/view', {
+        .when('/view', {
             templateUrl: 'views/viewInventory.html',
             controller: 'InventoryController'
         })
@@ -22,7 +22,7 @@ myApp.config(function($routeProvider, $locationProvider) {
             controller: 'InventoryController'
         })
         .otherwise({
-            redirectTo: '/inventory'
+            redirectTo: '/'
         });
     // user HTML5 History API
     $locationProvider.html5Mode(true);
