@@ -7,6 +7,10 @@ myApp.controller('InventoryController', function($scope, $location, inventorySer
             });
         */
 
+        $scope.goBack = function() {
+            window.history.go(-1);
+        };
+
         $scope.newInventory = function() {
             $scope.inventory = { items: [] };
             $location.path('/inventory/new');

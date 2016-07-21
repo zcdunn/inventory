@@ -28,6 +28,13 @@ section {
     padding:10px;
 }
 
+.back img {
+    display:block;
+    width:15px;
+    height:15px;
+    margin-bottom:10px;
+}
+
 @media screen and (max-width:767px) {
 
 }
