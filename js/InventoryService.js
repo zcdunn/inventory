@@ -1,4 +1,12 @@
 myApp.service('inventoryService', function() {
+    this.setCurrentInventory = function(inv) {
+        this.inventory = inv;
+    };
+
+    this.getCurrentInventory = function() {
+        return this.inventory;
+    };
+
     this.getInventories = function() {
         var invStr = localStorage.getItem('inventories');
         var inv = invStr ? JSON.parse(invStr) : this.defaultJson;

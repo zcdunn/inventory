@@ -1,11 +1,10 @@
 myApp.controller('InventoryController', function($scope, $location, inventoryService) {
         $scope.inventories = inventoryService.getInventories();
-        /*
         inventoryService.loadInventories()
             .then(function(inventories) {
+                console.log("Loaded stored inventories: ", inventories);
                 $scope.inventories = inventories;
             });
-        */
 
         $scope.goBack = function() {
             window.history.go(-1);
@@ -18,8 +17,8 @@ myApp.controller('InventoryController', function($scope, $location, inventorySer
 
         $scope.viewInventory = function(inv) {
             console.log("Inventory:", inv);
-            $scope.inventory = inv;
             $location.path('/view');
+            $scope.inventory = inv;
         };
 
         $scope.addInventory = function() {
@@ -33,8 +32,8 @@ myApp.controller('InventoryController', function($scope, $location, inventorySer
         };
 
         $scope.newItem = function() {
-            $scope.item = {};
             $location.path('/item/new');
+            $scope.item = {};
         };
 
         $scope.addItem = function() {
