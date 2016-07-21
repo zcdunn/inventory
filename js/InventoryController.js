@@ -16,7 +16,6 @@ myApp.controller('InventoryController', function($scope, $location, inventorySer
         };
 
         $scope.viewInventory = function(inv) {
-            console.log("Inventory:", inv);
             inventoryService.setCurrentInventory(inv);
             $location.path('/view');
         };
