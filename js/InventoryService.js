@@ -1,4 +1,4 @@
-myApp.service('inventoryService', function() {
+myApp.service('inventoryService', function($http) {
     this.setCurrentInventory = function(inv) {
         this.inventory = inv;
     };
@@ -7,7 +7,7 @@ myApp.service('inventoryService', function() {
         return this.inventory;
     };
 
-    this.loadInventories = function() {
+    this.loadInventories = function($http) {
         var invStr = localStorage.getItem('inventories'), ret;
         if(invStr) {
             ret = new Promise(function(resolve, reject) {
