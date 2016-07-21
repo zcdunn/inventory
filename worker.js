@@ -1,4 +1,4 @@
-importScripts('/sw-toolbox.js');
+importScripts('js/sw-toolbox.js');
 
 const version = '0.0.1';
 const CACHE_NAME = 'inventory' + version;
