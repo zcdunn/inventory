@@ -1,0 +1,15 @@
+<div ng-show="creatingNewItem">
+    Add Item:
+    <form ng-submit="addItem()">
+        <label for="item.name">Item Name:</label>
+        <input type="text" ng-model="item.name" placeholder="Deadly Longsword of Death" required />
+
+        <label for="item.value">Item Value:</label>
+        <input type="number" ng-model="item.value" placeholder="1000000" />
+
+        <label for="item.desc">Item Description:</label>
+        <textarea ng-model="item.desc" required></textarea>
+
+        <input type="submit" value="Add Item" />
+    </form>
+</div>

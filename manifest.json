@@ -1,0 +1,7 @@
+{
+    "short_name": "Inventory",
+    "name": "Inventory Manager",
+    "display": "standalone",
+    "background_color": "#83B5D1",
+    "theme_color": "#83B5D1"
+}

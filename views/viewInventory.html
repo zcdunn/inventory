@@ -1,0 +1,16 @@
+<h3>{{inventory.name}}</h3>
+<h4>Available Coin</h4>
+<ul>
+    <li>GP: {{inventory.coin.gp}}</li>
+    <li>SP: {{inventory.coin.sp}}</li>
+    <li>CP: {{inventory.coin.cp}}</li>
+</ul>
+<h4>Items</h4>
+<ul>
+    <li ng-repeat="item in inventory.items track by $index">
+        <span class="item-name">{{item.name}}</span>
+        <span class="item-value">{{item.value}}</span>
+        <span class="x" ng-click="removeItem()"></span>
+    </li>
+</ul>
+<button ng-click="newItem()">New Item</button>
