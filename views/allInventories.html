@@ -1,0 +1,8 @@
+<ul>
+    <li ng-repeat="inv in inventories track by $index">
+        <span>
+            <span ng-click="editInventory(inv)">{{inv.name}}</span>
+        </span>
+    </li>
+</ul>
+<button ng-click="newInventory()">New Inventory</button>

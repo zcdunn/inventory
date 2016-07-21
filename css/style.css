@@ -1,0 +1,36 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+label {
+    padding:5px;
+}
+
+input, textarea {
+    margin:5px 10px;
+}
+
+span.x {
+    float:right;
+}
+
+span.x:after {
+    content: "x";
+    color:gray;
+    cursor:pointer;
+}
+
+fieldset span {
+    display:block;
+}
+
+section {
+    padding:10px;
+}
+
+@media screen and (max-width:767px) {
+
+}
+
+@media screen and (min-width:768px) {
+}

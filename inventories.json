@@ -1,0 +1,31 @@
+[
+    {
+        "name": "Lionshead Coster",
+        "coin": {
+            "gp": 500,
+            "sp": 0,
+            "cp": 0
+        },
+        "items": []
+    },
+
+    {
+        "name": "Phandalin Smithy",
+        "coin": {
+            "gp": 250,
+            "sp": 0,
+            "cp": 0
+        },
+        "items": []
+    },
+
+    {
+        "name": "Phandalin Miner's Exchange",
+        "coin": {
+            "gp": 450,
+            "sp": 325,
+            "cp": 750
+        },
+        "items": []
+    }
+]
