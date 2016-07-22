@@ -31,23 +31,31 @@ myApp.service('inventoryService', function($http) {
     };
 
     this.loadInventories = function() {
-        var invStr = localStorage.getItem('inventories'), ret, inventories;
-        if(invStr) {
-            inventories = JSON.parse(invStr);
-            ret = new Promise(function(resolve, reject) {
-                resolve(inventories);
-            });
+        var inventoryPromise;
+        if(!this.inventories) {
+            var invStr = localStorage.getItem('inventories'), inventories;
+            if(invStr) {
+                this.inventories = JSON.parse(invStr);
+                inventoryPromise = new Promise(function(resolve) {
+                    resolve(this.inventories);
+                });
+            }
+            else {
+                var self = this;
+                inventoryPromise = $http.get('inventories.json')
+                                        .then(function(res) {
+                                            self.inventories = res.data;
+                                            return self.inventories;
+                                        });
+            }
         }
         else {
-            ret = $http.get('inventories.json')
-                    .then(function(res) {
-                        inventories = res.data;
-                        return inventories;
-                    });
+            inventoryPromise = new Promise(function(resolve) {
+                resolve(this.inventories);
+            });
         }
 
-        this.inventories = inventories;
-        return ret;
+        return inventoryPromise;
     };
 
     this.putInventories = function(inventories) {
