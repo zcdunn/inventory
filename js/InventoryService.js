@@ -10,14 +10,6 @@ myApp.service('inventoryService', function($http) {
         s4() + '-' + s4() + s4() + s4();
     }
 
-    this.setCurrentInventory = function(inv) {
-        this.inventory = inv;
-    };
-
-    this.getCurrentInventory = function() {
-        return this.inventory;
-    };
-
     this.newInventory = function() {
         var id = guid();
         while(this.inventories[id]) {

@@ -4,24 +4,20 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
             console.log("Loaded stored inventories: ", inventories);
             $scope.inventories = inventories;
         });
-    if($location.path().includes('new')) {
-        $scope.inventory = inventoryService.newInventory();
-    }
-    else {
-        $scope.inventory = inventoryService.getInventory($routeParams.id);
-    }
+    $scope.inventory = inventoryService.getInventory($routeParams.id);
 
     $scope.goBack = function() {
         $window.history.go(-1);
     };
 
     $scope.newInventory = function() {
-        $scope.inventory = inventoryService.newInventory();
-        $location.path('/new');
+        var inventory = inventoryService.newInventory();
+        $location.path(`/new/${inventory.id}`);
     };
 
     $scope.viewInventory = function(inv) {
-        inventoryService.setCurrentInventory(inv);
+        // TODO: remove old setCurrentInventory method
+        // inventoryService.setCurrentInventory(inv);
         $location.path('/view');
     };
 
@@ -31,7 +27,8 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.editInventory = function(inv) {
-        inventoryService.setCurrentInventory(inv);
+        // TODO: remove old setCurrentInventory method
+        // inventoryService.setCurrentInventory(inv);
         $location.path('/edit');
     };
 

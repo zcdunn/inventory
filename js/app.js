@@ -5,19 +5,15 @@ myApp.config(function($routeProvider, $locationProvider) {
             templateUrl: 'views/allInventories.html',
             controller: 'InventoryController'
         })
-        .when('/edit', {
-            templateUrl: 'views/editInventory.html',
-            controller: 'InventoryController'
-        })
         .when('/edit/:id', {
             templateUrl: 'views/editInventory.html',
             controller: 'InventoryController'
         })
-        .when('/new', {
+        .when('/new/:id', {
             templateUrl: 'views/editInventory.html',
             controller: 'InventoryController'
         })
-        .when('/view', {
+        .when('/view/:id', {
             templateUrl: 'views/viewInventory.html',
             controller: 'InventoryController'
         })
