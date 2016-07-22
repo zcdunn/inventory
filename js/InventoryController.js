@@ -32,4 +32,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         inventoryService.storeInventories();
         $location.path(`/view/${id}`);
     };
+
+    $scope.removeItem = function() {
+    };
 });

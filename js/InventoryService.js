@@ -17,7 +17,6 @@ myApp.service('inventoryService', function($http) {
         }
 
         var inv = { id, items: {} };
-        this.inventories[id] = inv;
         return inv;
     };
 
