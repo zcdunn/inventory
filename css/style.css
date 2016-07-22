@@ -7,8 +7,23 @@ body {
     padding-right:20px;
 }
 
-#items li {
+#items li:hover {
     background:lightgray;
+}
+
+#items li:after {
+    float:right;
+    content:"x";
+    color:gray;
+    cursor:pointer;
+}
+
+span.item-value {
+    margin-left:5em;
+}
+
+span.item-value:after {
+    content: " (gp)";
 }
 
 label {
@@ -17,16 +32,6 @@ label {
 
 input, textarea {
     margin:5px 10px;
-}
-
-span.x {
-    float:right;
-}
-
-span.x:after {
-    content: "x";
-    color:gray;
-    cursor:pointer;
 }
 
 fieldset span {

@@ -20,7 +20,6 @@
             <li ng-repeat="item in inventory.items track by $index">
                 <span class="item-name">{{item.name}}</span>
                 <span class="item-value">{{item.value}}</span>
-                <span class="x" ng-click="removeItem(item.id)"></span>
             </li>
         </ul>
     </div>
