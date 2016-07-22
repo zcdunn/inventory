@@ -40,15 +40,6 @@ span.item-value:after {
     content: " (gp)";
 }
 
-label {
-    display:inline-block;
-    padding:5px;
-}
-
-input, textarea {
-    margin-top:10px;
-}
-
 fieldset span {
     display:block;
 }
