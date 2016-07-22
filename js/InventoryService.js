@@ -38,7 +38,7 @@ myApp.service('inventoryService', function($http) {
 
     this.loadInventories = function() {
         if(!this.inventories) {
-            var invStr = localStorage.getItem('inventories'), inventories;
+            var invStr = localStorage.inventories, inventories;
             this.inventories = invStr ? JSON.parse(invStr) : this.defaultJson;
         }
 
@@ -46,7 +46,7 @@ myApp.service('inventoryService', function($http) {
     };
 
     this.storeInventories = function() {
-        localStorage.setItem('inventories', JSON.stringify(this.inventories));
+        localStorage.inventories = JSON.stringify(this.inventories);
     };
 
     this.defaultJson = {
