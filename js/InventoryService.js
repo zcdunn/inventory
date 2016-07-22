@@ -39,8 +39,8 @@ myApp.service('inventoryService', function($http) {
         return this.inventories;
     };
 
-    this.putInventories = function(inventories) {
-        localStorage.setItem('inventories', JSON.stringify(inventories));
+    this.storeInventories = function() {
+        localStorage.setItem('inventories', JSON.stringify(this.inventories));
     };
 
     this.defaultJson = {
