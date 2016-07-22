@@ -1,8 +1,8 @@
 <ul>
     <li ng-repeat="inv in inventories track by $index">
         <span>
-            <span ng-click="viewInventory(inv)">{{inv.name}}</span>
+            <span ng-href="edit/{{inv.id}}">{{inv.name}}</span>
         </span>
     </li>
 </ul>
-<button ng-href="/new">New Inventory</button>
+<button ng-href="new">New Inventory</button>
