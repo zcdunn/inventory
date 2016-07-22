@@ -31,35 +31,51 @@ myApp.service('inventoryService', function($http) {
     };
 
     this.loadInventories = function() {
-        var inventoryPromise;
         if(!this.inventories) {
             var invStr = localStorage.getItem('inventories'), inventories;
-            if(invStr) {
-                this.inventories = JSON.parse(invStr);
-                inventoryPromise = new Promise(function(resolve) {
-                    resolve(this.inventories);
-                });
-            }
-            else {
-                var self = this;
-                inventoryPromise = $http.get('inventories.json')
-                                        .then(function(res) {
-                                            self.inventories = res.data;
-                                            return self.inventories;
-                                        });
-            }
-        }
-        else {
-            inventoryPromise = new Promise(function(resolve) {
-                resolve(this.inventories);
-            });
+            this.inventories = invStr ? JSON.parse(invStr) : this.defaultJson;
         }
 
-        return inventoryPromise;
+        return this.inventories;
     };
 
     this.putInventories = function(inventories) {
         localStorage.setItem('inventories', JSON.stringify(inventories));
+    };
+
+    this.defaultJson = {
+        "76ee1ec6-b9db-a9c6-48ae-4f452273cfb8": {
+            "id": "76ee1ec6-b9db-a9c6-48ae-4f452273cfb8",
+            "name": "Lionshead Coster",
+            "coin": {
+                "gp": 500,
+                "sp": 0,
+                "cp": 0
+            },
+            "items": []
+        },
+
+        "d03204e1-8f7c-4905-4d9f-de161c7b4f14": {
+            "id": "d03204e1-8f7c-4905-4d9f-de161c7b4f14",
+            "name": "Phandalin Smithy",
+            "coin": {
+                "gp": 250,
+                "sp": 0,
+                "cp": 0
+            },
+            "items": []
+        },
+
+        "9ef00a86-f484-5a00-b000-56dbfbb37664": {
+            "id": "9ef00a86-f484-5a00-b000-56dbfbb37664",
+            "name": "Phandalin Miner's Exchange",
+            "coin": {
+                "gp": 450,
+                "sp": 325,
+                "cp": 750
+            },
+            "items": []
+        }
     };
 });
 

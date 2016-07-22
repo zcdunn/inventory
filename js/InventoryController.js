@@ -1,10 +1,5 @@
 myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService) {
-    inventoryService.loadInventories()
-        .then(function(inventories) {
-            console.log("Loaded stored inventories: ", inventories);
-            $scope.inventories = inventories;
-            $scope.$apply();
-        });
+    $scope.inventories = inventoryService.loadInventories();
     $scope.inventory = inventoryService.getInventory($routeParams.id);
 
     $scope.goBack = function() {
