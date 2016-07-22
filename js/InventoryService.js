@@ -16,7 +16,7 @@ myApp.service('inventoryService', function($http) {
             id = guid();
         }
 
-        var inv = { id, items: [] };
+        var inv = { id, items: {} };
         this.inventories[id] = inv;
         return inv;
     };
@@ -59,7 +59,7 @@ myApp.service('inventoryService', function($http) {
                 "sp": 0,
                 "cp": 0
             },
-            "items": []
+            "items": {}
         },
 
         "d03204e1-8f7c-4905-4d9f-de161c7b4f14": {
@@ -70,7 +70,7 @@ myApp.service('inventoryService', function($http) {
                 "sp": 0,
                 "cp": 0
             },
-            "items": []
+            "items": {}
         },
 
         "9ef00a86-f484-5a00-b000-56dbfbb37664": {
@@ -81,7 +81,7 @@ myApp.service('inventoryService', function($http) {
                 "sp": 325,
                 "cp": 750
             },
-            "items": []
+            "items": {}
         }
     };
 });
