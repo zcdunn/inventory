@@ -16,5 +16,6 @@
     "theme_color": "#F44336",
     "display": "standalone",
     "start_url": "/inventory/?hs=true",
-    "orientation": "any"
+    "orientation": "any",
+    "background_color": "#F0F0F0"
 }
