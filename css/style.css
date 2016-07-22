@@ -57,6 +57,7 @@ img#edit {
     margin:10px;
 }
 
+/*
 footer {
     position:absolute;
     width:100%;
@@ -64,8 +65,13 @@ footer {
     bottom:0;
     left:0;
 }
+*/
 
 @media screen and (max-width:767px) {
+    .mdl-layout .mdl-layout__header {
+        display:flex;
+    }
+
     label {
         width:10em;
     }
