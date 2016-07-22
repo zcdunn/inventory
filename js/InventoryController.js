@@ -3,7 +3,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         .then(function(inventories) {
             console.log("Loaded stored inventories: ", inventories);
             $scope.inventories = inventories;
-            $scope.apply();
+            $scope.$apply();
         });
     $scope.inventory = inventoryService.getInventory($routeParams.id);
 
