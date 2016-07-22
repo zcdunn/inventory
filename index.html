@@ -30,6 +30,8 @@
         <div class="mdl-layout mdl-js-layout mdl-layout-waterfall">
             <header class="mdl-layout__header mdl-layout__header--waterfall mdl-color--primary">
                 <div class="mdl-layout__header-row">
+                    <i id="header-icon" ng-show="{{showBack}}" class="material-icons">arrow_back</i>
+                    <i id="header-icon" ng-show="{{!showBack}}" class="material-icons"></i>
                     <span class="mdl-layout-title">Inventory Manager</span>
                     <div class="mdl-layout-spacer"></div>
                     <nav class="mdl-navigation mdl-layout--large-screen-only">

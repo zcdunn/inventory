@@ -1,6 +1,7 @@
 myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService) {
     $scope.inventories = inventoryService.loadInventories();
     $scope.inventory = inventoryService.getInventory($routeParams.id);
+    $scope.showBack = !!$scope.inventory;
 
     $scope.goBack = function() {
         $window.history.go(-1);
@@ -9,6 +10,10 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.newInventory = function() {
         var inventory = inventoryService.newInventory();
         $location.path(`/new/${inventory.id}`);
+    };
+
+    $scope.editInventory = function(inv) {
+        $location.path(`/edit/${inventory.id}`);
     };
 
     $scope.addInventory = function() {
