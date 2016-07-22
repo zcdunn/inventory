@@ -2,12 +2,16 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+header .mdl-layout__header-row {
+    padding:0px 16px;
+}
+
 .container {
     padding-left:20px;
     padding-right:20px;
 }
 
-#addFAB {
+.fab {
     position:fixed;
     display:block;
     bottom:0;
