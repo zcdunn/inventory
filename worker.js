@@ -10,8 +10,13 @@ var urlsToCache = [
     'views/viewInventory.html',
     'views/viewItem.html',
     'images/favicon.ico',
+    'css/mdl-icons.css',
+    'css/material.red-amber.min.css',
     'css/style.css',
+    'js/angular.min.js',
+    'js/angular-route.min.js',
     'js/sw-toolbox.js',
+    'js/material.min.js',
     'js/app.js',
     'js/InventoryController.js',
     'js/InventoryService.js'

@@ -7,10 +7,6 @@ body {
     padding-right:20px;
 }
 
-#items li:hover {
-    background:lightgray;
-}
-
 #items li:after {
     float:right;
     content:"x";
@@ -76,6 +72,10 @@ footer {
 }
 
 @media screen and (min-width:768px) {
+    #items li:hover {
+        background:lightgray;
+    }
+
     #view .container {
         margin:auto;
         width:50%;
