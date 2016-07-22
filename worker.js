@@ -13,6 +13,7 @@ var urlsToCache = [
     'css/mdl-icons.css',
     'css/material.red-amber.min.css',
     'css/style.css',
+    'fonts/icons.woff2',
     'js/angular.min.js',
     'js/angular-route.min.js',
     'js/sw-toolbox.js',
