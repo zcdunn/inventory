@@ -4,9 +4,17 @@ const version = '0.0.1';
 const CACHE_NAME = 'inventory' + version;
 var urlsToCache = [
     '/index.html',
+    'views/allInventories.html',
+    'views/editInventory.html',
+    'views/editItem.html',
+    'views/viewInventory.html',
+    'views/viewItem.html',
     '/images/favicon.ico',
     '/css/style.css',
-    '/js/script.js'
+    '/js/sw-toolbox.js',
+    '/js/app.js',
+    '/js/InventoryController.js',
+    '/js/InventoryService.js'
 ];
 
 toolbox.options.debug = true;
