@@ -4,7 +4,7 @@ myApp.controller('InventoryController', function($scope, $location, $routeParams
             console.log("Loaded stored inventories: ", inventories);
             $scope.inventories = inventories;
         });
-    if($location.path.includes('new')) {
+    if($location.path().includes('new')) {
         $scope.inventory = inventoryService.newInventory();
     }
     else {
