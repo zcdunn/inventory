@@ -4,20 +4,23 @@
 <a ng-click="editInventory(inventory)" title="Edit Inventory">
     <img src="images/edit.png" id="edit" />
 </a>
-<!-- TODO: Add edit button here -->
-<h3>{{inventory.name}}</h3>
-<h4>Available Coin</h4>
-<ul>
-    <li>GP: {{inventory.coin.gp}}</li>
-    <li>SP: {{inventory.coin.sp}}</li>
-    <li>CP: {{inventory.coin.cp}}</li>
-</ul>
-<h4>Items</h4>
-<ul>
-    <li ng-repeat="item in inventory.items track by $index">
-        <span class="item-name">{{item.name}}</span>
-        <span class="item-value">{{item.value}}</span>
-        <span class="x" ng-click="removeItem()"></span>
-    </li>
-</ul>
-<button ng-click="newItem()">New Item</button>
+
+<div class="container">
+    <h3>{{inventory.name}}</h3>
+    <h4>Available Coin</h4>
+    <p class="coin">
+        <span>GP: {{inventory.coin.gp}}</span>
+        <span>SP: {{inventory.coin.sp}}</span>
+        <span>CP: {{inventory.coin.cp}}</span>
+    </p>
+
+    <h4>Items</h4>
+    <ul ng-if="inventory.items">
+        <li ng-repeat="item in inventory.items track by $index">
+            <span class="item-name">{{item.name}}</span>
+            <span class="item-value">{{item.value}}</span>
+            <span class="x" ng-click="removeItem()"></span>
+        </li>
+    </ul>
+    <button ng-click="newItem()">New Item</button>
+</div>

@@ -9,6 +9,10 @@ myApp.config(function($routeProvider, $locationProvider) {
             templateUrl: 'views/editInventory.html',
             controller: 'InventoryController'
         })
+        .when('/edit/:id', {
+            templateUrl: 'views/editInventory.html',
+            controller: 'InventoryController'
+        })
         .when('/new', {
             templateUrl: 'views/editInventory.html',
             controller: 'InventoryController'

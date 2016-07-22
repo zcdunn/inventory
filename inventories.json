@@ -1,5 +1,6 @@
-[
-    {
+{
+    "76ee1ec6-b9db-a9c6-48ae-4f452273cfb8": {
+        "id": "76ee1ec6-b9db-a9c6-48ae-4f452273cfb8",
         "name": "Lionshead Coster",
         "coin": {
             "gp": 500,
@@ -9,7 +10,8 @@
         "items": []
     },
 
-    {
+    "d03204e1-8f7c-4905-4d9f-de161c7b4f14": {
+        "id": "d03204e1-8f7c-4905-4d9f-de161c7b4f14",
         "name": "Phandalin Smithy",
         "coin": {
             "gp": 250,
@@ -19,7 +21,8 @@
         "items": []
     },
 
-    {
+    "9ef00a86-f484-5a00-b000-56dbfbb37664": {
+        "id": "9ef00a86-f484-5a00-b000-56dbfbb37664",
         "name": "Phandalin Miner's Exchange",
         "coin": {
             "gp": 450,
@@ -28,4 +31,4 @@
         },
         "items": []
     }
-]
+}
