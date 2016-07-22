@@ -18,8 +18,10 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.addInventory = function() {
-        $scope.inventories[$routeParams.id] = $scope.inventory;
+        var id = $routeParams.id;
+        $scope.inventories[id] = $scope.inventory;
         inventoryService.storeInventories();
+        $location.path(`/view/${id}`);
     };
 
     $scope.editInventory = function(inv) {
