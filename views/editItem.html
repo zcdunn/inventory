@@ -1,15 +1,24 @@
-<div>
-    Add Item:
-    <form ng-submit="addItem()">
-        <label for="item.name">Item Name:</label>
-        <input type="text" ng-model="item.name" placeholder="Deadly Longsword of Death" autofocus required />
+<a ng-href="view/{{inventory.id}}" title="Go Back">
+    <img src="images/back-arrow.png" id="back" />
+</a>
 
-        <label for="item.value">Item Value(gp):</label>
-        <input type="number" ng-model="item.value" placeholder="1000000" />
+<form ng-submit="addItem()">
+    <fieldset>
+        <span>
+            <label for="item.name">Item Name:</label>
+            <input type="text" ng-model="item.name" placeholder="Deadly Longsword of Death" autofocus required />
+        </span>
 
-        <label for="item.desc">Item Description:</label>
-        <textarea ng-model="item.desc" required></textarea>
+        <span>
+            <label for="item.value">Item Value(gp):</label>
+            <input type="number" ng-model="item.value" placeholder="1000000" />
+        </span>
 
-        <input type="submit" value="Add Item" />
-    </form>
-</div>
+        <span>
+            <label for="item.desc">Item Description:</label>
+            <textarea ng-model="item.desc" required></textarea>
+        </span>
+    </fieldset>
+
+    <input type="submit" value="Add Item" />
+</form>

@@ -7,9 +7,8 @@ body {
     padding-right:20px;
 }
 
-#view .container {
-    margin:auto;
-    width:50%;
+#items li {
+    background:lightgray;
 }
 
 label {
@@ -69,4 +68,8 @@ footer {
 }
 
 @media screen and (min-width:768px) {
+    #view .container {
+        margin:auto;
+        width:50%;
+    }
 }
