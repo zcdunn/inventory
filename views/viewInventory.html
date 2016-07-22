@@ -12,7 +12,7 @@
         <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
         <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
             <div class="mdl-crumbs mdl-color-text--grey-500"></div>
-            <div>
+            <div class="innerDiv">
                 <h3 class="mdl-color-text--primary">{{inventory.name}}</h3>
                 <h4 class="mdl-color-text--primary">Available Coin</h4>
                 <p class="coin">
@@ -21,25 +21,20 @@
                     <span>CP: {{inventory.coin.cp}}</span>
                 </p>
 
-                <div ng-if="inventory.items">
-                    <h4>Items</h4>
-                    <ul id="items" class="mdl-list-icon mdl-list">
-                        <li class="mdl-list__item" ng-repeat="item in inventory.items track by $index">
-                            <span class="item-name mdl-list__item-primary-content">{{item.name}}</span>
-                            <span class="item-value">{{item.value}}</span>
-                            <!--
-                            <span class="mdl-list__item-secondary-action">
-                                <label class="mdl-js-ripple-effect">
-                                    <i class="material-icons">clear</i>
-                                </label>
-                            </span>
-                            -->
-                        </li>
-                    </ul>
-                </div>
-                <div ng-if="!inventory.items">
-                    <h4>No Items</h4>
-                </div>
+                <h4 class="mdl-color-text--primary">Items</h4>
+                <ul id="items" class="mdl-list-icon mdl-list">
+                    <li class="mdl-list__item" ng-repeat="item in inventory.items track by $index">
+                        <span class="item-name mdl-list__item-primary-content">{{item.name}}</span>
+                        <span class="item-value">{{item.value}}</span>
+                        <!--
+                        <span class="mdl-list__item-secondary-action">
+                            <label class="mdl-js-ripple-effect">
+                                <i class="material-icons">clear</i>
+                            </label>
+                        </span>
+                        -->
+                    </li>
+                </ul>
                 <button ng-click="newItem()">New Item</button>
             </div>
         </div>

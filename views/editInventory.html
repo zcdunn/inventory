@@ -1,29 +1,42 @@
-<a ng-href="/inventory" title="Go Back">
-    <i class="material-icons">arrow_back</i>
-</a>
-<br />
-<form ng-submit="addInventory()">
-    <fieldset>
-        <div>
-            <label for="name">Name:</label>
-            <input type="text" ng-model="inventory.name" placeholder="Character/Shop Name" autofocus required />
-        </div>
+<section class="section--header mdl-grid mdl-grid--no-spacing mdl-cell--hide-tablet mdl-cell--hide-phone">
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="mdl-content mdl-color--white mdl-shadow--6dp content mdl-cell mdl-cell--8-col mdl-cell--hide-tablet mdl-cell--hide-phone">
+        <!--<img src="images/something.png" alt="" />-->
+    </div>
+</section>
+<section class="section--main">
+    <div class="mdl-container mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+        <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <div class="mdl-crumbs mdl-color-text--grey-500"></div>
+            <div class="innerDiv">
+                <h3 class="mdl-color-text--primary">Inventories</h3>
+                <form ng-submit="addInventory()">
+                    <fieldset>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <label for="name" class="textfield__label">Name:</label>
+                            <input type="text" class="textfield__input" ng-model="inventory.name" placeholder="Character/Shop Name" autofocus required />
+                        </div>
 
-        <div>
-            <label for="coin.gp">GP:</label>
-            <input type="number" ng-model="inventory.coin.gp" value="0" placeholder="gold pieces" required />
-        </div>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <label for="coin.gp" class="textfield__label">GP:</label>
+                            <input type="number" class="textfield__input" ng-model="inventory.coin.gp" value="0" placeholder="gold pieces" required />
+                        </div>
 
-        <div>
-            <label for="coin.sp">SP:</label>
-            <input type="number" ng-model="inventory.coin.sp" value="0" placeholder="silver pieces" required />
-        </div>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <label for="coin.sp" class="textfield__label">SP:</label>
+                            <input type="number" class="textfield__input" ng-model="inventory.coin.sp" value="0" placeholder="silver pieces" required />
+                        </div>
 
-        <div>
-            <label for="coin.cp">CP:</label>
-            <input type="number" ng-model="inventory.coin.cp" value="0" placeholder="copper pieces" required />
-        </div>
-    </fieldset>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <label for="coin.cp" class="textfield__label">CP:</label>
+                            <input type="number" class="textfield__input" ng-model="inventory.coin.cp" value="0" placeholder="copper pieces" required />
+                        </div>
+                    </fieldset>
 
-    <input type="submit" id="addBtn" value="Done" />
-</form>
+                    <input type="submit" id="addBtn" value="Done" />
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
