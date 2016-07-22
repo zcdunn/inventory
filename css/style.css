@@ -7,6 +7,16 @@ body {
     padding-right:20px;
 }
 
+#addFAB {
+    position:fixed;
+    display:block;
+    bottom:0;
+    right:0;
+    margin-right:40px;
+    margin-bottom:40px;
+    z-index:900;
+}
+
 #items li:after {
     float:right;
     content:"x";

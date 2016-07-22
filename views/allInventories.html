@@ -15,7 +15,7 @@
     </div>
 </section>
 <section class="section--main">
-    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" ng-repeat="e in entries | filter: searchQuery">
+    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
         <div class="mdl-cell mdl-cell--12-col mdl-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
             <h3>{{Inventories}}</h3>
             <ul>
@@ -52,7 +52,7 @@
     </div>
 </section>
 -->
-<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="searchFAB" ng-click="activateSearch()">
+<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="addFAB" ng-click="newInventory()">
     <i class="material-icons" role="presentation">add</i>
     <span class="visuallyhidden">Add Inventory</span>
 </button>
