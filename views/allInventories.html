@@ -10,23 +10,28 @@
 -->
 <section class="section--header mdl-grid mdl-grid--no-spacing mdl-cell--hide-tablet mdl-cell--hide-phone">
     <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-    <div class="demo-content mdl-color--white mdl-shadow--6dp content mdl-cell mdl-cell--8-col mdl-cell--hide-tablet mdl-cell--hide-phone">
+    <div class="mdl-content mdl-color--white mdl-shadow--6dp content mdl-cell mdl-cell--8-col mdl-cell--hide-tablet mdl-cell--hide-phone">
         <!--<img src="images/something.png" alt="" />-->
     </div>
 </section>
 <section class="section--main">
-    <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-        <div class="mdl-cell mdl-cell--12-col mdl-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-            <h3 class="mdl-color-text--primary">Inventories</h3>
-            <ul>
-                <li ng-repeat="inv in inventories track by $index">
-                    <span>
-                        <a ng-href="view/{{inv.id}}">{{inv.name}}</a>
-                    </span>
-                </li>
-            </ul>
+    <div class="mdl-container mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+        <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <div class="mdl-crumbs mdl-color-text--grey-500"></div>
+            <div>
+                <h3 class="mdl-color-text--primary">Inventories</h3>
+                <ul class="mdl-list-icon mdl-list">
+                    <li class="mdl-list__item" ng-repeat="inv in inventories track by $index">
+                        <span class="mdl-list__item-primary-content">
+                            <i class="material-icons mdl-list__item-icon">shopping_basket</i>
+                            <a ng-href="view/{{inv.id}}">{{inv.name}}</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </section>
+    </div>
 </section>
 <!--
 <section class="section--footer mdl-color--white mdl-grid">
