@@ -13,7 +13,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.editInventory = function(inv) {
-        $location.path(`/edit/${inventory.id}`);
+        $location.path(`/edit/${inv.id}`);
     };
 
     $scope.addInventory = function() {
