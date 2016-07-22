@@ -9,6 +9,10 @@ myApp.config(function($routeProvider, $locationProvider) {
             templateUrl: 'views/editInventory.html',
             controller: 'InventoryController'
         })
+        .when('/edit/:id/item/new/:itemId', {
+            templateUrl: 'views/editItem.html',
+            controller: 'InventoryController'
+        })
         .when('/new/:id', {
             templateUrl: 'views/editInventory.html',
             controller: 'InventoryController'
@@ -17,8 +21,8 @@ myApp.config(function($routeProvider, $locationProvider) {
             templateUrl: 'views/viewInventory.html',
             controller: 'InventoryController'
         })
-        .when('/item/new', {
-            templateUrl: 'views/newItem.html',
+        .when('/view/:id/item/:itemId', {
+            templateUrl: 'views/viewItem.html',
             controller: 'InventoryController'
         })
         .otherwise({

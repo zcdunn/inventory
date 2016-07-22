@@ -11,12 +11,6 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         $location.path(`/new/${inventory.id}`);
     };
 
-    $scope.viewInventory = function(inv) {
-        // TODO: remove old setCurrentInventory method
-        // inventoryService.setCurrentInventory(inv);
-        $location.path('/view');
-    };
-
     $scope.addInventory = function() {
         var id = $routeParams.id;
         $scope.inventories[id] = $scope.inventory;
@@ -24,18 +18,18 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         $location.path(`/view/${id}`);
     };
 
-    $scope.editInventory = function(inv) {
-        // TODO: remove old setCurrentInventory method
-        // inventoryService.setCurrentInventory(inv);
-        $location.path('/edit');
-    };
-
     $scope.newItem = function() {
-        $location.path('/item/new');
+        var id = $scope.inventory.id;
+        var item = inventoryService.newItem();
+        $location.path(`/edit/${id}/item/new/${item.id}`);
     };
 
     $scope.addItem = function() {
-        $scope.inventory.items.push(item);
-        inventoryService.putInventories($scope.inventories);
+        var { id, itemId } = $routeParams;
+        var inventory = $scope.inventories[id];
+
+        inventory.items[itemId] = $scope.item;
+        inventoryService.storeInventories();
+        $location.path(`/view/${id}`);
     };
 });

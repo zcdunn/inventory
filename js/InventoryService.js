@@ -21,6 +21,13 @@ myApp.service('inventoryService', function($http) {
         return inv;
     };
 
+    this.newItem = function() {
+        var id = guid();
+
+        var item = { id };
+        return item;
+    };
+
     this.getInventory = function(id) {
         try {
             return this.inventories[id];

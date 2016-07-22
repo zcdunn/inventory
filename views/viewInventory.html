@@ -1,7 +1,7 @@
 <a ng-href="/inventory" title="Go Back">
     <img src="images/back-arrow.png" id="back" />
 </a>
-<a ng-click="editInventory(inventory)" title="Edit Inventory">
+<a ng-href="edit/{{inventory.id}}" title="Edit Inventory">
     <img src="images/edit.png" id="edit" />
 </a>
 
@@ -14,13 +14,18 @@
         <span>CP: {{inventory.coin.cp}}</span>
     </p>
 
-    <h4>Items</h4>
-    <ul ng-if="inventory.items">
-        <li ng-repeat="item in inventory.items track by $index">
-            <span class="item-name">{{item.name}}</span>
-            <span class="item-value">{{item.value}}</span>
-            <span class="x" ng-click="removeItem()"></span>
-        </li>
-    </ul>
+    <div ng-if="inventory.items">
+        <h4>Items</h4>
+        <ul>
+            <li ng-repeat="item in inventory.items track by $index">
+                <span class="item-name">{{item.name}}</span>
+                <span class="item-value">{{item.value}}</span>
+                <span class="x" ng-click="removeItem()"></span>
+            </li>
+        </ul>
+    </div>
+    <div ng-if="!inventory.items">
+        <h4>No Items</h4>
+    </div>
     <button ng-click="newItem()">New Item</button>
 </div>

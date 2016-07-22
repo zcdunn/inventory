@@ -7,6 +7,11 @@ body {
     padding-right:20px;
 }
 
+#view .container {
+    margin:auto;
+    width:50%;
+}
+
 label {
     padding:5px;
 }
