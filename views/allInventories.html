@@ -1,7 +1,7 @@
 <ul>
     <li ng-repeat="inv in inventories track by $index">
         <span>
-            <span ng-href="edit/{{inv.id}}">{{inv.name}}</span>
+            <a ng-href="edit/{{inv.id}}">{{inv.name}}</a>
         </span>
     </li>
 </ul>

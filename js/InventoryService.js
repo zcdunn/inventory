@@ -39,21 +39,22 @@ myApp.service('inventoryService', function($http) {
     };
 
     this.loadInventories = function() {
-        var invStr = localStorage.getItem('inventories'), ret;
+        var invStr = localStorage.getItem('inventories'), ret, inventories;
         if(invStr) {
-            this.inventories = JSON.parse(invStr);
+            inventories = JSON.parse(invStr);
             ret = new Promise(function(resolve, reject) {
-                resolve(this.inventories);
+                resolve(inventories);
             });
         }
         else {
             ret = $http.get('inventories.json')
                     .then(function(res) {
-                        this.inventories = res.data;
-                        return this.inventories;
+                        inventories = res.data;
+                        return inventories;
                     });
         }
 
+        this.inventories = inventories;
         return ret;
     };
 

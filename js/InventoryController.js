@@ -1,4 +1,4 @@
-myApp.controller('InventoryController', function($scope, $location, $routeParams, inventoryService) {
+myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService) {
     inventoryService.loadInventories()
         .then(function(inventories) {
             console.log("Loaded stored inventories: ", inventories);
@@ -12,7 +12,7 @@ myApp.controller('InventoryController', function($scope, $location, $routeParams
     }
 
     $scope.goBack = function() {
-        window.history.go(-1);
+        $window.history.go(-1);
     };
 
     $scope.newInventory = function() {
