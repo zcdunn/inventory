@@ -30,7 +30,12 @@ myApp.service('inventoryService', function($http) {
     };
 
     this.getInventory = function(id) {
-        return this.inventories[id];
+        try {
+            return this.inventories[id];
+        }
+        catch(err) {
+            return undefined;
+        }
     };
 
     this.loadInventories = function() {
