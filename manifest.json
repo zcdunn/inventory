@@ -1,7 +1,14 @@
 {
-    "short_name": "Inventory",
+    "short_name": "Inventory Manager",
     "name": "Inventory Manager",
+    "icons": [
+        {
+            "src":"images/dnd-logo.png",
+            "size":"36x36",
+            "type":"image/png"
+        }
+    ],
+    "theme_color": "#F44336",
     "display": "standalone",
-    "background_color": "#83B5D1",
-    "theme_color": "#F44336"
+    "start_url": "/inventory/?hs=true"
 }

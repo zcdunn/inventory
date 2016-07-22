@@ -24,7 +24,7 @@ var urlsToCache = [
 
 toolbox.options.debug = true;
 toolbox.precache(urlsToCache);
-toolbox.router.get('*', toolbox.cacheFirst);
+toolbox.router.get('*', toolbox.networkFirst);
 
 self.addEventListener('push', event => console.log('Received push notification: ', event));
 
