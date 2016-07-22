@@ -6,6 +6,10 @@ header .mdl-layout__header-row {
     padding:0px 16px;
 }
 
+header .header-icon {
+    width:56px;
+}
+
 .container {
     padding-left:20px;
     padding-right:20px;
