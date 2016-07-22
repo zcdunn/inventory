@@ -18,7 +18,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.addInventory = function() {
-        $scope.inventories[$routeparams.id] = $scope.inventory;
+        $scope.inventories[$routeParams.id] = $scope.inventory;
         inventoryService.storeInventories();
     };
 
