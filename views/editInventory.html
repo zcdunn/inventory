@@ -1,24 +1,24 @@
 <form ng-submit="addInventory()">
     <fieldset>
-        <span>
+        <div>
             <label for="name">Name:</label>
             <input type="text" ng-model="inventory.name" placeholder="Character/Shop Name" autofocus required />
-        </span>
+        </div>
 
-        <span>
+        <div>
             <label for="coin.gp">GP:</label>
             <input type="number" ng-model="inventory.coin.gp" value="0" placeholder="gold pieces" required />
-        </span>
+        </div>
 
-        <span>
+        <div>
             <label for="coin.sp">SP:</label>
             <input type="number" ng-model="inventory.coin.sp" value="0" placeholder="silver pieces" required />
-        </span>
+        </div>
 
-        <span>
+        <div>
             <label for="coin.cp">CP:</label>
             <input type="number" ng-model="inventory.coin.cp" value="0" placeholder="copper pieces" required />
-        </span>
+        </div>
     </fieldset>
 
     <input type="submit" id="addBtn" value="Done" />

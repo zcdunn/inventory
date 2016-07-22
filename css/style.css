@@ -27,11 +27,13 @@ span.item-value:after {
 }
 
 label {
+    display:inline-block;
+    width:15em;
     padding:5px;
 }
 
 input, textarea {
-    margin:5px 10px;
+    margin-top:10px;
 }
 
 fieldset span {
