@@ -30,6 +30,7 @@ header .header-icon {
     content:"x";
     color:gray;
     cursor:pointer;
+    margin-left:10px;
 }
 
 span.item-value {
