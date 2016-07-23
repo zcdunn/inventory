@@ -26,13 +26,21 @@
                     <li class="mdl-list__item" ng-repeat="item in inventory.items track by $index">
                         <span class="item-name mdl-list__item-primary-content">{{item.name}}</span>
                         <span class="item-value">{{item.value}}</span>
-                        <!--
                         <span class="mdl-list__item-secondary-action">
-                            <label class="mdl-js-ripple-effect">
+                            <label class="mdl-js-ripple-effect" data-upgraded=",MaterialRipple">
+                                <i class="material-icons">xx</i>
+                            </label>
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                            <label class="mdl-js-ripple-effect" data-upgraded=",MaterialRipple">
+                                <i class="material-icons">edit</i>
+                            </label>
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                            <label class="mdl-js-ripple-effect" data-upgraded=",MaterialRipple">
                                 <i class="material-icons">clear</i>
                             </label>
                         </span>
-                        -->
                     </li>
                 </ul>
                 <button ng-click="newItem()">New Item</button>
