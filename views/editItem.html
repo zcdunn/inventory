@@ -1,24 +1,37 @@
-<a ng-href="view/{{inventory.id}}" title="Go Back">
-    <i class="material-icons">arrow_back</i>
-</a>
-<br />
-<form ng-submit="addItem()">
-    <fieldset>
-        <div>
-            <label for="item.name">Item Name:</label>
-            <input type="text" ng-model="item.name" placeholder="Deadly Longsword of Death" autofocus required />
-        </div>
+<section class="section--header mdl-grid mdl-grid--no-spacing mdl-cell--hide-tablet mdl-cell--hide-phone">
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="mdl-content mdl-color--white mdl-shadow--6dp content mdl-cell mdl-cell--8-col mdl-cell--hide-tablet mdl-cell--hide-phone">
+        <!--<img src="images/something.png" alt="" />-->
+    </div>
+</section>
+<section class="section--main">
+    <div class="mdl-container mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+        <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <div class="mdl-crumbs mdl-color-text--grey-500"></div>
+            <div class="innerDiv">
+                <h3 class="mdl-color-text--primary">Edit Item</h3>
+                <form ng-submit="addInventory()">
+                    <fieldset>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input type="text" id="name" class="mdl-textfield__input" ng-model="item.name" autofocus required />
+                            <label for="name" class="mdl-textfield__label">Item Name</label>
+                        </div>
 
-        <div>
-            <label for="item.value">Item Value(gp):</label>
-            <input type="number" ng-model="item.value" placeholder="1000000" />
-        </div>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input type="number" id="value" class="mdl-textfield__input" ng-model="item.value" required />
+                            <label for="value" class="mdl-textfield__label">Item Value (gp)</label>
+                        </div>
 
-        <div>
-            <label for="item.desc">Item Description:</label>
-            <textarea ng-model="item.desc" required></textarea>
-        </div>
-    </fieldset>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <textarea id="desc" class="mdl-textfield__input" ng-model="item.desc" required></textarea>
+                            <label for="desc" class="mdl-textfield__label">Item Description</label>
+                        </div>
+                    </fieldset>
 
-    <input type="submit" value="Add Item" />
-</form>
+                    <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Done" />
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
