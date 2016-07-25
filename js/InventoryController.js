@@ -1,4 +1,4 @@
-myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService) {
+myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService, breadCrumbService) {
     $scope.inventories = inventoryService.loadInventories();
     $scope.inventory = inventoryService.getInventory($routeParams.id);
     $scope.headerIcon = $scope.inventory ? "arrow_back" : "";
@@ -15,6 +15,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         }
         else crumb.display = $scope.inventory ? $scope.inventory.name : "New Inventory";
         console.log("Crumb: ", crumb);
+        breadCrumbService.push(crumb);
     }
 
     $scope.goBack = function() {

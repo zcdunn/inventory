@@ -20,7 +20,8 @@ var urlsToCache = [
     'js/material.min.js',
     'js/app.js',
     'js/InventoryController.js',
-    'js/InventoryService.js'
+    'js/InventoryService.js',
+    'js/BreadCrumbService.js'
 ];
 
 toolbox.options.debug = true;
