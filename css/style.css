@@ -69,7 +69,7 @@ img#edit {
     display:inline;
 }
 
-.demo-crumbs ul li:not(:last-of-type):after {
+.mdl-crumbs ul li:not(:last-of-type):after {
     content:" > ";
     padding-left:3px;
     padding-right:3px;
