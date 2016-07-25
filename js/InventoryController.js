@@ -3,6 +3,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.inventory = inventoryService.getInventory($routeParams.id);
     $scope.headerIcon = $scope.inventory ? "arrow_back" : "";
     updateCrumbs();
+    $scope.breadCrumbs = breadCrumbService.crumbs;
 
     function updateCrumbs() {
         var crumb = {

@@ -1,6 +1,6 @@
 myApp.service('breadCrumbService', function($location) {
 
-    this.pathQueue = [
+    this.crumbs = [
         {
             path: '/',
             display:'Inventories'
@@ -8,11 +8,11 @@ myApp.service('breadCrumbService', function($location) {
     ];
 
     this.push = function(path) {
-        this.pathQueue.push(path);
+        this.crumbs.push(path);
     };
 
     this.get = function(i) {
         if(!i) i = 0;
-        return this.pathQueue[i];
+        return this.crumbs[i];
     };
 });
