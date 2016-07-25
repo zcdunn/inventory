@@ -1,4 +1,4 @@
-myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService) {
+myApp.controller('InventoryController', function($scope, $window, $location, $route, $routeParams, inventoryService) {
     $scope.inventories = inventoryService.loadInventories();
     $scope.inventory = inventoryService.getInventory($routeParams.id);
     $scope.headerIcon = $scope.inventory ? "arrow_back" : "";
