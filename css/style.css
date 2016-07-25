@@ -75,6 +75,10 @@ img#edit {
     padding-right:3px;
 }
 
+a.mdl-btn-link {
+    color:rgba(0,0,0,0.75);
+}
+
 @media screen and (max-width:767px) {
     .mdl-layout .mdl-layout__header {
         display:flex;
