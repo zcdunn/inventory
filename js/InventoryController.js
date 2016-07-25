@@ -2,7 +2,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.inventories = inventoryService.loadInventories();
     $scope.inventory = inventoryService.getInventory($routeParams.id);
     $scope.headerIcon = $scope.inventory ? "arrow_back" : "";
-    console.log("Path: " + $location.path());
+    console.log("Path: " + $location.path(), $route.current);
 
     $scope.goBack = function() {
         $window.history.go(-1);
