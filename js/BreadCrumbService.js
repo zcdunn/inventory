@@ -2,7 +2,7 @@ myApp.service('breadCrumbService', function($location) {
 
     this.crumbs = [
         {
-            path: '/',
+            path: './',
             display:'Inventories'
         }
     ];

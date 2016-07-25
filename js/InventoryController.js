@@ -7,7 +7,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
 
     function updateCrumbs() {
         var crumb = {
-            path: $location.path()
+            path: $location.path().substring(1)
         };
 
         if($routeParams.itemId) {
