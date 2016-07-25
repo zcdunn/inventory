@@ -10,13 +10,15 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
             path: $location.path().substring(1)
         };
 
-        if($routeParams.itemId) {
-            var item = $scope.inventory.items[$routeParams.itemId];
-            crumb.display = item ? item.name : 'New Item';
+        if(crumb.path) {
+            if($routeParams.itemId) {
+                var item = $scope.inventory.items[$routeParams.itemId];
+                crumb.display = item ? item.name : 'New Item';
+            }
+            else crumb.display = $scope.inventory ? $scope.inventory.name : "New Inventory";
+            console.log("Crumb: ", crumb);
+            breadCrumbService.push(crumb);
         }
-        else crumb.display = $scope.inventory ? $scope.inventory.name : "New Inventory";
-        console.log("Crumb: ", crumb);
-        breadCrumbService.push(crumb);
     }
 
     $scope.goBack = function() {
