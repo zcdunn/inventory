@@ -25,16 +25,8 @@ header .header-icon {
     z-index:900;
 }
 
-#items li:after {
-    float:right;
-    content:"x";
-    color:gray;
-    cursor:pointer;
-    margin-left:10px;
-}
-
 span.item-value {
-    margin-left:5em;
+    margin-left:3em;
 }
 
 span.item-value:after {
@@ -67,15 +59,21 @@ img#edit {
     margin:10px;
 }
 
-/*
-footer {
-    position:absolute;
-    width:100%;
-    height:125px;
-    bottom:0;
-    left:0;
+.mdl-crumbs ul {
+    list-style:none;
+    margin:0px;
+    padding:0;
 }
-*/
+
+.mdl-crumbs ul li {
+    display:inline;
+}
+
+.demo-crumbs ul li:not(:last-of-type):after {
+    content:" > ";
+    padding-left:3px;
+    padding-right:3px;
+}
 
 @media screen and (max-width:767px) {
     .mdl-layout .mdl-layout__header {
