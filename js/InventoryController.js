@@ -12,7 +12,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
 
         if($routeParams.itemId) {
             var item = $scope.inventory.items[$routeParams.itemId];
-            crumb.display = item.name || 'New Item';
+            crumb.display = item ? item.name : 'New Item';
         }
         else crumb.display = $scope.inventory ? $scope.inventory.name : "New Inventory";
         console.log("Crumb: ", crumb);
