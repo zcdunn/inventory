@@ -7,8 +7,12 @@ myApp.service('breadCrumbService', function($location) {
         }
     ];
 
-    this.push = function(path) {
-        this.crumbs.push(path);
+    this.push = function(crumb) {
+        var isAlreadyListed = false;
+        for(var i = 0, len = this.crumbs.len; i < len; i++) {
+            if(this.crumbs[i].path == crumb.path) isAlreadyListed = true;
+        }
+        if(!isAlreadyListed) this.crumbs.push(crumb);
     };
 
     this.get = function(i) {

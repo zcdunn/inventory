@@ -41,20 +41,6 @@ section {
     padding:10px;
 }
 
-img#back {
-    float:left;
-    width:20px;
-    height:20px;
-    margin-left:-10px;
-}
-
-img#edit {
-    float:right;
-    width:20px;
-    height:20px;
-    margin-left:-10px;
-}
-
 .coin span {
     margin:10px;
 }
@@ -84,8 +70,8 @@ a.mdl-btn-link {
         display:flex;
     }
 
-    form label {
-        width:10em;
+    .innerDiv {
+        width:100%;
     }
 }
 
