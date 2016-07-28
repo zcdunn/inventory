@@ -106,4 +106,20 @@ var myApp = angular
             childList: true,
             subtree: true
         });
+    })
+    .run(function($rootScope, breadCrumbService) {
+        $rootScope.$on('$routeChangeSuccess', function (e, curr, prev) {
+            var fullRoute = curr.$$route.originalPath,
+                routeParams = curr.params,
+                breadCrumb = curr.locals.breadCrumb,
+                path;
+
+            console.log("Curr: ", curr);
+
+            path = fullRoute
+                    .replace(/:id/, routeParams.id)
+                    .replace(/:itemId/, routeParams.itemId);
+            breadCrumb.path = path;
+            breadCrumbService.update(breadCrumb);
+        });
     });

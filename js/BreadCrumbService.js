@@ -21,11 +21,8 @@ myApp.service('breadCrumbService', function($location) {
         this.crumbs = this.crumbs.slice(0, index);
     };
 
-    this.update = function(nextRoute, currRoute) {
-        /*
-        nextRoute
-        var index = this.crumbs.
-        */
+    this.update = function(crumb) {
+        console.log("Updating crumbs:", crumb);
     };
 
     this.get = function(i) {
