@@ -1,7 +1,7 @@
 myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService, breadCrumbService) {
     $scope.inventories = inventoryService.loadInventories();
     $scope.inventory = inventoryService.getInventory($routeParams.id);
-    $scope.headerIcon = $scope.inventory ? "arrow_back" : "";
+    $scope.item = $scope.inventory[$routeParams.itemId];
     $scope.breadCrumbs = breadCrumbService;
 
     $scope.$on('$routeChangeSuccess', function (e, curr, prev) {
@@ -14,13 +14,13 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         $window.history.go(-1);
     };
 
+    $scope.editInventory = function(inv) {
+        $location.path(`/edit/${inv.id}`);
+    };
+
     $scope.newInventory = function() {
         var inventory = inventoryService.newInventory();
         $location.path(`/new/${inventory.id}`);
-    };
-
-    $scope.editInventory = function(inv) {
-        $location.path(`/edit/${inv.id}`);
     };
 
     $scope.addInventory = function() {

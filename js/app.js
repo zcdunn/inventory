@@ -14,6 +14,20 @@ var myApp = angular
                     }
                 }
             })
+            .when('/edit/:id/item/:itemId', {
+                templateUrl: 'views/editItem.html',
+                controller: 'InventoryController',
+                resolve: {
+                    breadCrumb: function($routeParams) {
+                        console.log("$routeParams: ", $routeParams);
+                        var id = $routeParams.id;
+                        return {
+                            display: "Edit Item",
+                            path: `/edit/${id}/item/${itemId}`
+                        };
+                    }
+                }
+            })
             .when('/edit/:id', {
                 templateUrl: 'views/editInventory.html',
                 controller: 'InventoryController',
