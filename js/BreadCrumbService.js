@@ -11,7 +11,7 @@ myApp.service('breadCrumbService', function($location) {
     this.update = function(crumb) {
         console.log("Updating crumbs:", crumb);
         var index = this.crumbs.findIndex(function(c) {
-            return c.path === path;
+            return c.path === crumb.path;
         });
 
         if(index == -1) {
