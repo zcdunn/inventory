@@ -33,7 +33,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
 
     $scope.newItem = function() {
         var id = $scope.inventory.id;
-        var item = inventoryService.newItem();
+        var item = inventoryService.newItem($scope.inventory);
         $location.path(`/edit/${id}/item/new/${item.id}`);
     };
 

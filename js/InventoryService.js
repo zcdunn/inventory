@@ -20,10 +20,11 @@ myApp.service('inventoryService', function($http) {
         return inv;
     };
 
-    this.newItem = function() {
+    this.newItem = function(inv) {
         var id = guid();
 
         var item = { id };
+        inv.items[id] = item;
         return item;
     };
 
