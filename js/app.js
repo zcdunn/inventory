@@ -19,6 +19,7 @@ var myApp = angular
                 controller: 'InventoryController',
                 resolve: {
                     breadCrumb: function($routeParams) {
+                        console.log("$routeParams: ", $routeParams);
                         var id = $routeParams.id;
                         return {
                             display: "Edit Inventory",
@@ -32,6 +33,7 @@ var myApp = angular
                 controller: 'InventoryController',
                 resolve: {
                     breadCrumb: function($routeParams) {
+                        console.log("$routeParams: ", $routeParams);
                         var { id, itemId } = $routeParams;
                         return {
                             display: "New Item",
@@ -45,6 +47,7 @@ var myApp = angular
                 controller: 'InventoryController',
                 resolve: {
                     breadCrumb: function($routeParams) {
+                        console.log("$routeParams: ", $routeParams);
                         var id = $routeParams.id;
                         return {
                             display: "Edit Inventory",
@@ -58,6 +61,7 @@ var myApp = angular
                 controller: 'InventoryController',
                 resolve: {
                     breadCrumb: function($routeParams) {
+                        console.log("$routeParams: ", $routeParams);
                         var id = $routeParams.id;
                         return {
                             display: "View Inventory",
@@ -71,6 +75,7 @@ var myApp = angular
                 controller: 'InventoryController',
                 resolve: {
                     breadCrumb: function($routeParams) {
+                        console.log("$routeParams: ", $routeParams);
                         var { id, itemId } = $routeParams;
                         return {
                             display: "View Item",
