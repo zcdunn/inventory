@@ -1,22 +1,28 @@
 myApp.service('breadCrumbService', function($location) {
 
     this.crumbs = [
-        {
-            path: './',
-            display:'Inventories'
-        }
     ];
 
+    this.currCrumb = {
+        path: './',
+        display:'Inventories'
+    };
+
     this.push = function(crumb) {
-        var isAlreadyListed = false;
-        for(var i = 0, len = this.crumbs.len; i < len; i++) {
-            if(this.crumbs[i].path == crumb.path) isAlreadyListed = true;
-        }
-        if(!isAlreadyListed) this.crumbs.push(crumb);
+        this.crumbs.push(this.currCrumb);
+        this.currCrumb = crumb;
+    };
+
+    this.go = function(path) {
+        var index = this.crumbs.findIndex(function(crumb) {
+            return crumb.path === path;
+        });
+        this.currCrumb = this.crumbs[index];
+        this.crumbs = this.crumbs.slice(0, index);
     };
 
     this.get = function(i) {
-        if(!i) i = 0;
-        return this.crumbs[i];
+        var index = i || 0;
+        return this.crumbs[index];
     };
 });

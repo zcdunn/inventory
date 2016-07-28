@@ -10,7 +10,8 @@
         <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
             <div class="mdl-crumbs mdl-color-text--grey-500">
                 <ul>
-                    <li>Inventories</li>
+                    <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-click="go({{crumb.path}})">{{crumb.display}}</a></li>
+                    <li>{{breadCrumbs.currCrumb.display}}</li>
                 </ul>
             </div>
             <div class="innerDiv">

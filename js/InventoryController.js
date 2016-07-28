@@ -2,24 +2,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.inventories = inventoryService.loadInventories();
     $scope.inventory = inventoryService.getInventory($routeParams.id);
     $scope.headerIcon = $scope.inventory ? "arrow_back" : "";
-    updateCrumbs();
-    $scope.breadCrumbs = breadCrumbService.crumbs;
-
-    function updateCrumbs() {
-        var crumb = {
-            path: $location.path().substring(1)
-        };
-
-        if(crumb.path) {
-            if($routeParams.itemId) {
-                var item = $scope.inventory.items[$routeParams.itemId];
-                crumb.display = item ? item.name : 'New Item';
-            }
-            else crumb.display = $scope.inventory ? $scope.inventory.name : "New Inventory";
-            console.log("Crumb: ", crumb);
-            breadCrumbService.push(crumb);
-        }
-    }
+    $scope.breadCrumbs = breadCrumbService;
 
     $scope.goBack = function() {
         $window.history.go(-1);
