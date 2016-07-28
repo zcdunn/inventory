@@ -4,6 +4,21 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.headerIcon = $scope.inventory ? "arrow_back" : "";
     $scope.breadCrumbs = breadCrumbService;
 
+    $scope.$on('$routeChangeSuccess', function (e, curr, prev) {
+        var routeParams = curr.params,
+            breadCrumb = curr.locals.breadCrumb,
+            path;
+
+        console.log("Curr: ", curr);
+        console.log("$location.path: " + $location.path());
+
+        path = curr.$$route.originalPath
+                .replace(/:id/, routeParams.id)
+                .replace(/:itemId/, routeParams.itemId);
+        breadCrumb.path = path;
+        breadCrumbService.update(breadCrumb);
+    });
+
     $scope.$on('$routeChangeStart', function(next, current) {
         console.log("Current route: ", current);
         console.log("Next route: ", next);
