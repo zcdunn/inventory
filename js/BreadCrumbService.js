@@ -10,6 +10,9 @@ myApp.service('breadCrumbService', function($location) {
 
     this.update = function(crumb) {
         console.log("Updating crumbs:", crumb);
+        if(this.current.path === crumb.path || crumb.path === '/')
+            return;
+
         var index = this.crumbs.findIndex(function(c) {
             return c.path === crumb.path;
         });
