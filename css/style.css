@@ -73,6 +73,10 @@ a.mdl-btn-link {
     .innerDiv {
         width:100%;
     }
+
+    .mdl-layout__content {
+        flex:1 0 auto;
+    }
 }
 
 @media screen and (min-width:768px) {
