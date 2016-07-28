@@ -6,7 +6,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
 
     $scope.$on('$routeChangeSuccess', function (e, curr, prev) {
         var breadCrumb = curr.locals.breadCrumb;
-        breadCrumb.path = $location.path();
+        breadCrumb.path = $location.path().substring(1);
         breadCrumbService.update(breadCrumb);
     });
 
