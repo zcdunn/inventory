@@ -5,47 +5,78 @@ var myApp = angular
             .when('/', {
                 templateUrl: 'views/allInventories.html',
                 controller: 'InventoryController',
-                title: "Inventories",
-                data: {
-                    title: "Inventories"
-                },
                 resolve: {
-                    display: function() { return "Inventories"; }
+                    breadCrumb: function() {
+                        return {
+                            display: "Inventories",
+                            path: "./"
+                        };
+                    }
                 }
             })
             .when('/edit/:id', {
                 templateUrl: 'views/editInventory.html',
                 controller: 'InventoryController',
                 resolve: {
-                    display: function() { return "Edit Inventory"; }
+                    breadCrumb: function($routeParams) {
+                        var id = $routeParams.id;
+                        return {
+                            display: "Edit Inventory",
+                            path: `/edit/${id}`
+                        };
+                    }
                 }
             })
             .when('/edit/:id/item/new/:itemId', {
                 templateUrl: 'views/editItem.html',
                 controller: 'InventoryController',
                 resolve: {
-                    display: function() { return "New Item"; }
+                    breadCrumb: function($routeParams) {
+                        var { id, itemId } = $routeParams;
+                        return {
+                            display: "New Item",
+                            path: `/edit/${id}/item/new/${itemId}`
+                        };
+                    }
                 }
             })
             .when('/new/:id', {
                 templateUrl: 'views/editInventory.html',
                 controller: 'InventoryController',
                 resolve: {
-                    display: function() { return "Edit Inventory"; }
+                    breadCrumb: function($routeParams) {
+                        var id = $routeParams.id;
+                        return {
+                            display: "Edit Inventory",
+                            path: `/new/${id}`
+                        };
+                    }
                 }
             })
             .when('/view/:id', {
                 templateUrl: 'views/viewInventory.html',
                 controller: 'InventoryController',
                 resolve: {
-                    display: function() { return "View Inventory"; }
+                    breadCrumb: function($routeParams) {
+                        var id = $routeParams.id;
+                        return {
+                            display: "View Inventory",
+                            path: `/view/${id}`
+                        };
+                    }
                 }
             })
             .when('/view/:id/item/:itemId', {
                 templateUrl: 'views/viewItem.html',
                 controller: 'InventoryController',
                 resolve: {
-                    display: function() { return "View Item"; }
+                    breadCrumb: function($routeParams) {
+                        var { id, itemId } = $routeParams;
+                        return {
+                            display: "View Item",
+                            path: `/view/${id}/item/${itemId}`
+                        };
+                    }
                 }
             })
             .otherwise({
