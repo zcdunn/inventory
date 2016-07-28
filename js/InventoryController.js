@@ -1,7 +1,8 @@
 myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService, breadCrumbService) {
     $scope.inventories = inventoryService.loadInventories();
     $scope.inventory = inventoryService.getInventory($routeParams.id);
-    $scope.item = $scope.inventory[$routeParams.itemId];
+    if($scope.inventory && $routeParams.itemId)
+        $scope.item = $scope.inventory[$routeParams.itemId];
     $scope.breadCrumbs = breadCrumbService;
 
     $scope.$on('$routeChangeSuccess', function (e, curr, prev) {
