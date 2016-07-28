@@ -6,17 +6,9 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
 
     $scope.$on('$routeChangeSuccess', function (e, curr, prev) {
         var breadCrumb = curr.locals.breadCrumb;
-
-        console.log("Curr: ", curr);
         breadCrumb.path = $location.path();
         breadCrumbService.update(breadCrumb);
     });
-
-    $scope.$on('$routeChangeStart', function(next, current) {
-        console.log("Current route: ", current);
-        console.log("Next route: ", next);
-        breadCrumbService.update(next, current);
-     });
 
     $scope.goBack = function() {
         $window.history.go(-1);
