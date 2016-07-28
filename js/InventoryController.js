@@ -5,6 +5,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.breadCrumbs = breadCrumbService;
 
     $scope.$on('$routeChangeStart', function(next, current) {
+        console.log("Current route: ", current);
         console.log("Next route: ", next);
         breadCrumbService.update(next, current);
      });
