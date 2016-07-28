@@ -25,7 +25,7 @@ myApp.service('breadCrumbService', function($location) {
             this.current = crumb;
         }
         else {
-            this.current = this.crumbs[index];
+            this.current = this.crumbs[index] || this.current;
             this.crumbs = this.crumbs.slice(0, index);
         }
     };
