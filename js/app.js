@@ -20,7 +20,7 @@ var myApp = angular
                 resolve: {
                     breadCrumb: function($routeParams) {
                         console.log("$routeParams: ", $routeParams);
-                        var id = $routeParams.id;
+                        var { id, itemId } = $routeParams;
                         return {
                             display: "Edit Item",
                             path: `/edit/${id}/item/${itemId}`
