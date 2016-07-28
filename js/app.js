@@ -4,27 +4,49 @@ var myApp = angular
         $routeProvider
             .when('/', {
                 templateUrl: 'views/allInventories.html',
-                controller: 'InventoryController'
+                controller: 'InventoryController',
+                title: "Inventories",
+                data: {
+                    title: "Inventories"
+                },
+                resolve: {
+                    display: function() { return "Inventories"; }
+                }
             })
             .when('/edit/:id', {
                 templateUrl: 'views/editInventory.html',
-                controller: 'InventoryController'
+                controller: 'InventoryController',
+                resolve: {
+                    display: function() { return "Edit Inventory"; }
+                }
             })
             .when('/edit/:id/item/new/:itemId', {
                 templateUrl: 'views/editItem.html',
-                controller: 'InventoryController'
+                controller: 'InventoryController',
+                resolve: {
+                    display: function() { return "New Item"; }
+                }
             })
             .when('/new/:id', {
                 templateUrl: 'views/editInventory.html',
-                controller: 'InventoryController'
+                controller: 'InventoryController',
+                resolve: {
+                    display: function() { return "Edit Inventory"; }
+                }
             })
             .when('/view/:id', {
                 templateUrl: 'views/viewInventory.html',
-                controller: 'InventoryController'
+                controller: 'InventoryController',
+                resolve: {
+                    display: function() { return "View Inventory"; }
+                }
             })
             .when('/view/:id/item/:itemId', {
                 templateUrl: 'views/viewItem.html',
-                controller: 'InventoryController'
+                controller: 'InventoryController',
+                resolve: {
+                    display: function() { return "View Item"; }
+                }
             })
             .otherwise({
                 redirectTo: '/'

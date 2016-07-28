@@ -4,6 +4,11 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.headerIcon = $scope.inventory ? "arrow_back" : "";
     $scope.breadCrumbs = breadCrumbService;
 
+    $scope.$on('$routeChangeStart', function(next, current) {
+        console.log("Next route: ", next);
+        breadCrumbService.update(next, current);
+     });
+
     $scope.goBack = function() {
         $window.history.go(-1);
     };
