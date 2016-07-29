@@ -19,7 +19,6 @@ var myApp = angular
                 controller: 'InventoryController',
                 resolve: {
                     breadCrumb: function($routeParams) {
-                        console.log("$routeParams: ", $routeParams);
                         var { id, itemId } = $routeParams;
                         return {
                             display: "Edit Item",
@@ -33,7 +32,6 @@ var myApp = angular
                 controller: 'InventoryController',
                 resolve: {
                     breadCrumb: function($routeParams) {
-                        console.log("$routeParams: ", $routeParams);
                         var id = $routeParams.id;
                         return {
                             display: "Edit Inventory",
@@ -47,7 +45,6 @@ var myApp = angular
                 controller: 'InventoryController',
                 resolve: {
                     breadCrumb: function($routeParams) {
-                        console.log("$routeParams: ", $routeParams);
                         var { id, itemId } = $routeParams;
                         return {
                             display: "New Item",
@@ -61,7 +58,6 @@ var myApp = angular
                 controller: 'InventoryController',
                 resolve: {
                     breadCrumb: function($routeParams) {
-                        console.log("$routeParams: ", $routeParams);
                         var id = $routeParams.id;
                         return {
                             display: "Edit Inventory",
@@ -75,7 +71,6 @@ var myApp = angular
                 controller: 'InventoryController',
                 resolve: {
                     breadCrumb: function($routeParams) {
-                        console.log("$routeParams: ", $routeParams);
                         var id = $routeParams.id;
                         return {
                             display: "View Inventory",
@@ -88,12 +83,9 @@ var myApp = angular
                 templateUrl: 'views/viewItem.html',
                 controller: 'InventoryController',
                 resolve: {
-                    breadCrumb: function($routeParams) {
-                        console.log("$routeParams: ", $routeParams);
-                        var { id, itemId } = $routeParams;
+                    breadCrumb: function() {
                         return {
-                            display: "View Item",
-                            path: `/view/${id}/item/${itemId}`
+                            display: "View Item"
                         };
                     }
                 }

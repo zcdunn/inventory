@@ -1,8 +1,10 @@
 myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService, breadCrumbService) {
     $scope.inventories = inventoryService.loadInventories();
     $scope.inventory = inventoryService.getInventory($routeParams.id);
-    if($scope.inventory && $routeParams.itemId)
+    if($scope.inventory && $routeParams.itemId) {
         $scope.item = $scope.inventory[$routeParams.itemId];
+        console.log("Item: ", $scope.item);
+    }
     $scope.breadCrumbs = breadCrumbService;
 
     $scope.$on('$routeChangeSuccess', function (e, curr, prev) {
@@ -10,10 +12,6 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         breadCrumb.path = $location.path().substring(1);
         breadCrumbService.update(breadCrumb);
     });
-
-    $scope.goBack = function() {
-        $window.history.go(-1);
-    };
 
     $scope.editInventory = function(inv) {
         $location.path(`/edit/${inv.id}`);
@@ -38,14 +36,14 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.addItem = function() {
+        console.log("$routeParams:", $routeParams);
         var { id, itemId } = $routeParams;
-        var inventory = $scope.inventories[id];
 
-        inventory.items[itemId] = $scope.item;
+        $scope.inventory.items[itemId] = $scope.item;
         inventoryService.storeInventories();
         $location.path(`/view/${id}`);
     };
 
-    $scope.removeItem = function() {
+    $scope.removeItem = function(inv, item) {
     };
 });
