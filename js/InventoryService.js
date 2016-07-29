@@ -1,6 +1,6 @@
 myApp.service('inventoryService', function($http) {
-    this.newInventory = function() {
-        var inv = Inventory.create();
+    this.newInventory = function(name, coin, items, id) {
+        var inv = Inventory.create(name, coin, items, id);
         return inv;
     };
 
@@ -27,7 +27,7 @@ myApp.service('inventoryService', function($http) {
 
     this.loadInventories = function() {
         if(!this.inventories) {
-            var invStr = localStorage.inventories, inventories;
+            var invStr = localStorage.inventories;
             this.inventories = invStr ? JSON.parse(invStr) : this.defaultJson;
         }
 

@@ -16,8 +16,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.newInventory = function() {
-        var inventory = inventoryService.newInventory();
-        $location.path(`/new/${inventory.id}`);
+        $location.path('/new');
     };
 
     $scope.addInventory = function() {

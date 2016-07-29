@@ -56,7 +56,7 @@ var myApp = angular
                     }
                 }
             })
-            .when('/new/:id', {
+            .when('/new', {
                 templateUrl: 'views/editInventory.html',
                 controller: 'InventoryController',
                 resolve: {
@@ -64,7 +64,7 @@ var myApp = angular
                         var path = $location.path().substring(1);
 
                         return {
-                            display: "Edit Inventory",
+                            display: "New Inventory",
                             path
                         };
                     }
