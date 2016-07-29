@@ -18,14 +18,12 @@ var myApp = angular
                 templateUrl: 'views/editItem.html',
                 controller: 'InventoryController',
                 resolve: {
-                    breadCrumb: function($routeParams, $location) {
-                        var { id, itemId } = $routeParams;
+                    breadCrumb: function($location) {
                         var path = $location.path().substring(1);
-                        console.log("$location.path(): " + path);
 
                         return {
                             display: "Edit Item",
-                            path: `/edit/${id}/item/${itemId}`
+                            path
                         };
                     }
                 }
@@ -48,14 +46,12 @@ var myApp = angular
                 templateUrl: 'views/editItem.html',
                 controller: 'InventoryController',
                 resolve: {
-                    breadCrumb: function($routeParams, $location) {
-                        var { id, itemId } = $routeParams;
+                    breadCrumb: function($location) {
                         var path = $location.path().substring(1);
-                        console.log("$location.path(): " + path);
 
                         return {
                             display: "New Item",
-                            path: `/edit/${id}/item/new/${itemId}`
+                            path
                         };
                     }
                 }
@@ -64,14 +60,12 @@ var myApp = angular
                 templateUrl: 'views/editInventory.html',
                 controller: 'InventoryController',
                 resolve: {
-                    breadCrumb: function($routeParams, $location) {
-                        var id = $routeParams.id;
+                    breadCrumb: function($location) {
                         var path = $location.path().substring(1);
-                        console.log("$location.path(): " + path);
 
                         return {
                             display: "Edit Inventory",
-                            path: `/new/${id}`
+                            path
                         };
                     }
                 }
@@ -80,14 +74,12 @@ var myApp = angular
                 templateUrl: 'views/viewInventory.html',
                 controller: 'InventoryController',
                 resolve: {
-                    breadCrumb: function($routeParams, $location) {
-                        var id = $routeParams.id;
+                    breadCrumb: function($location) {
                         var path = $location.path().substring(1);
-                        console.log("$location.path(): " + path);
 
                         return {
                             display: "View Inventory",
-                            path: `/view/${id}`
+                            path
                         };
                     }
                 }
@@ -98,7 +90,6 @@ var myApp = angular
                 resolve: {
                     breadCrumb: function($location) {
                         var path = $location.path().substring(1);
-                        console.log("$location.path(): " + path);
 
                         return {
                             display: "View Item",
