@@ -19,21 +19,22 @@
                 <form ng-submit="addItem()">
                     <fieldset>
                         <div class="mdl-textfield mdl-js-textfield">
-                            <input type="text" id="name" class="mdl-textfield__input" ng-model="item.name" autofocus required />
+                            <input type="text" id="name" class="mdl-textfield__input" ng-model="item.name" autocomplete="false" autofocus required />
                             <label for="name" class="mdl-textfield__label">Item Name</label>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
-                            <input type="number" id="value" class="mdl-textfield__input" ng-model="item.value" required />
+                            <input type="number" id="value" class="mdl-textfield__input" ng-model="item.value" autocomplete="false" required />
                             <label for="value" class="mdl-textfield__label">Item Value (gp)</label>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
-                            <textarea id="desc" class="mdl-textfield__input" ng-model="item.desc" required></textarea>
+                            <textarea id="desc" class="mdl-textfield__input" ng-model="item.desc" autocomplete="false" required></textarea>
                             <label for="desc" class="mdl-textfield__label">Item Description</label>
                         </div>
                     </fieldset>
 
+                    <input type="hidden" id="id" ng-model="item.id" />
                     <input type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" value="Done" />
                 </form>
             </div>
