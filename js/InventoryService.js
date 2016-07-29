@@ -28,6 +28,10 @@ myApp.service('inventoryService', function($http) {
         return item;
     };
 
+    this.removeInventory = function(id) {
+        delete this.inventories[id];
+    };
+
     this.getInventory = function(id) {
         try {
             return this.inventories[id];
