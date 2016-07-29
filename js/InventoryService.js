@@ -1,22 +1,6 @@
 myApp.service('inventoryService', function($http) {
-    function s4() {
-      return Math.floor((1 + Math.random()) * 0x10000)
-        .toString(16)
-        .substring(1);
-    }
-
-    function guid() {
-      return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-        s4() + '-' + s4() + s4() + s4();
-    }
-
     this.newInventory = function() {
-        var id = guid();
-        while(this.inventories[id]) {
-            id = guid();
-        }
-
-        var inv = { id, items: {} };
+        var inv = Inventory.create();
         return inv;
     };
 
