@@ -31,8 +31,10 @@ var myApp = angular
                 templateUrl: 'views/editInventory.html',
                 controller: 'InventoryController',
                 resolve: {
-                    breadCrumb: function($routeParams) {
+                    breadCrumb: function($routeParams, $location) {
                         var id = $routeParams.id;
+                        console.log("$location.path: " + $location.path());
+                        
                         return {
                             display: "Edit Inventory",
                             path: `/edit/${id}`
