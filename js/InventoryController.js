@@ -37,6 +37,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
 
     $scope.addItem = function() {
         console.log("$routeParams:", $routeParams);
+        console.log("Here's the item I'm saving:", $scope.item);
         var { id, itemId } = $routeParams;
 
         $scope.inventory.items[itemId] = $scope.item;
@@ -45,5 +46,8 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.removeItem = function(inv, item) {
+        console.log("Removing item:", item);
+        inv.items[item.id] = undefined;
+        $location.path(`/view/${id}`);
     };
 });
