@@ -47,7 +47,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
 
     $scope.removeItem = function(inv, item) {
         console.log("Removing item:", item);
-        inv.items[item.id] = undefined;
-        $location.path(`/view/${id}`);
+        delete inv.items[item.id];
+        $location.path(`/view/${inv.id}`);
     };
 });
