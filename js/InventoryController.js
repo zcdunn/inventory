@@ -27,8 +27,8 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         $location.path(`/view/${id}`);
     };
 
-    $scope.removeInventory = function(inv) {
-        inventoryService.removeInventory(inv.id);
+    $scope.removeInventory = function(id) {
+        inventoryService.removeInventory(id);
         inventoryService.storeInventories();
     };
 
