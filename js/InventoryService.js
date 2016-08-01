@@ -34,6 +34,12 @@ myApp.service('inventoryService', function() {
         }
     };
 
+    this.getItem = function(id, itemId) {
+        var inventory = this.inventories[id] || {};
+        var item = inventory.getItem(itemId);
+        return item;
+    };
+
     this.getInventories = function() {
         if(!this.inventories) {
             var invStr = localStorage.inventories;
