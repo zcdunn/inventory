@@ -38,10 +38,12 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         showDialog({
             title: 'Delete Inventory',
             text: 'Are you sure you want to delete this inventory?',
+            id: 'removeInvDlg',
+            cancelable: false,
             negative: {
                 title: 'Cancel',
                 onClick: function() {
-                    hideDialog();
+                    hideDialog($('#removeInvDlg'));
                 }
             },
             positive: {
