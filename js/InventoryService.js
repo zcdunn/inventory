@@ -35,9 +35,14 @@ myApp.service('inventoryService', function() {
     };
 
     this.getItem = function(id, itemId) {
-        var inventory = this.inventories[id] || {};
-        var item = inventory.getItem(itemId);
-        return item;
+        try {
+            var inventory = this.inventories[id];
+            var item = inventory.getItem(itemId);
+            return item;
+        }
+        catch(err) {
+            return undefined;
+        }
     };
 
     this.getInventories = function() {
