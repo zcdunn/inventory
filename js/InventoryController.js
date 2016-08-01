@@ -21,11 +21,13 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         var inventory = $scope.inventory, inv;
 
         if(id) {
+            // TODO: move updating into inventoryService
             inv = inventoryService.getInventory(id);
             inv.name = inventory.name;
             inv.coin.gp = inventory.coin.gp;
             inv.coin.sp = inventory.coin.sp;
             inv.coin.cp = inventory.coin.cp;
+            inventoryService.storeInventories();
         }
         else inv = inventoryService.newInventory(inventory.name, inventory.coin);
 
@@ -44,10 +46,12 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         var item = $scope.item;
 
         if(itemId) {
+            // TODO: move updating into inventoryService
             var oldItem = inventoryService.getItem(id, itemId);
             oldItem.name = item.name;
             oldItem.value = item.value;
             oldItem.desc = item.desc;
+            inventoryService.storeInventories();
         }
         else inventoryService.newItem(id, item.name, item.value, item.desc);
 
