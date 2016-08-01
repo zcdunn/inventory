@@ -22,6 +22,10 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.addInventory = function() {
         var input = $scope.inventory;
         var inv = inventoryService.newInventory(inventory.name, inventory.coin);
+        
+        console.log("Input:", input);
+        console.log("Inventory:", inventory);
+
         inventoryService.storeInventories();
         $location.path(`/view/${inv.id}`);
     };
