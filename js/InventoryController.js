@@ -1,10 +1,8 @@
 myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService, breadCrumbService) {
+    var id = $routeParams.id, itemId = $routeParams.itemId;
     $scope.inventories = inventoryService.getInventories();
-    $scope.inventory = inventoryService.getInventory($routeParams.id);
-    if($scope.inventory && $routeParams.itemId) {
-        $scope.item = inventoryService.getItem($routeParams.id, $routeParams.itemId);
-        console.log("Item: ", $scope.item);
-    }
+    $scope.inventory = inventoryService.getInventory(id);
+    $scope.item = inventoryService.getItem(id, itemId) || {};
     $scope.breadCrumbs = breadCrumbService;
 
     $scope.$on('$routeChangeSuccess', function (e, curr, prev) {
