@@ -17,12 +17,18 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         $location.path('/new');
     };
 
-    $scope.addInventory = function() {
-        var inventory = $scope.inventory;
-        var inv = inventoryService.newInventory(inventory.name, inventory.coin);
+    $scope.addInventory = function(id) {
+        var inventory = $scope.inventory, inv;
 
-        console.log("Input:", inventory);
-        console.log("Inventory:", inv);
+        if(id) {
+            inv = inventoryService.getInventory(id);
+            inv.name = inventory.name;
+            inv.coin.gp = inventory.coin.gp;
+            inv.coin.sp = inventory.coin.sp;
+            inv.coin.cp = inventory.coin.cp;
+        }
+        else inv = inventoryService.newInventory(inventory.name, inventory.coin);
+
         $location.path(`/view/${inv.id}`);
     };
 
