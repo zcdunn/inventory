@@ -35,7 +35,22 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.removeInventory = function(id) {
-        inventoryService.removeInventory(id);
+        showDialog({
+            title: 'Delete Inventory',
+            text: 'Are you sure you want to delete this inventory?',
+            negative: {
+                title: 'Cancel',
+                onClick: function() {
+                    hideDialog();
+                }
+            },
+            positive: {
+                title: 'Yep',
+                onClick: function() {
+                    inventoryService.removeInventory(id);
+                }
+            }
+        });
     };
 
     $scope.newItem = function(id) {
