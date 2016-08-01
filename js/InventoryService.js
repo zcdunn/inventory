@@ -1,6 +1,7 @@
 myApp.service('inventoryService', function($http) {
-    this.newInventory = function(name, coin, items, id) {
-        var inv = Inventory.create(name, coin, items, id);
+    this.newInventory = function(name, coin, items) {
+        var inv = Inventory.create(name, coin, items);
+        this.inventories[inv.id] = inv;
         return inv;
     };
 

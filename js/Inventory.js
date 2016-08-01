@@ -9,22 +9,21 @@ function guid() {
 }
 
 var Inventory = {
-    create: function(name, coin, items, id) {
+    create: function(name, coin, items) {
         var self = Object.create(this);
         self.name = name;
         self.coin = coin || { gp: 0, sp: 0, cp: 0};
         self.items = items || {};
-        self.id = id || guid();
+        self.id = guid();
 
         return self;
     },
 
-    newItem: function(name, value, desc, id) {
-        var item = {};
-        item.name = name;
-        item.value = value || 10;
-        item.desc = desc || "";
-        item.id = id || guid();
+    newItem: function(name, val, desc) {
+        var value = val || 10;
+        var item = { name, value, desc };
+        item.id = guid();
+        
         return item;
     }
 };
