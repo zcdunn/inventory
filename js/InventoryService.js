@@ -7,11 +7,11 @@ myApp.service('inventoryService', function() {
         return inv;
     };
 
-    this.newItem = function(inv) {
-        var id = guid();
+    this.newItem = function(id, name, value, desc) {
+        var inventory = this.inventories[id];
+        var item = inventory.newItem(name, value, desc);
 
-        var item = { id };
-        inv.items[id] = item;
+        this.store();
         return item;
     };
 
@@ -48,8 +48,9 @@ myApp.service('inventoryService', function() {
     };
 
     this.store = function() {
+        var inventories = this.inventories;
         return new Promise(function(resolve, reject) {
-            var json = JSON.stringify(this.inventories);
+            var json = JSON.stringify(inventories);
             localStorage.inventories = json;
             resolve(json);
         });

@@ -32,19 +32,14 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         inventoryService.removeInventory(id);
     };
 
-    $scope.newItem = function() {
-        var id = $scope.inventory.id;
-        var item = inventoryService.newItem($scope.inventory);
-        $location.path(`/edit/${id}/item/new/${item.id}`);
+    $scope.newItem = function(id) {
+        $location.path(`/edit/${id}/item/new`);
     };
 
-    $scope.addItem = function() {
-        console.log("$routeParams:", $routeParams);
-        console.log("Here's the item I'm saving:", $scope.item);
-        var { id, itemId } = $routeParams;
+    $scope.addItem = function(id) {
+        var item = $scope.item;
 
-        $scope.inventory.items[itemId] = $scope.item;
-        inventoryService.storeInventories();
+        inventoryService.newItem(id, item.name, item.value, item.desc);
         $location.path(`/view/${id}`);
     };
 

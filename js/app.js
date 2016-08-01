@@ -42,7 +42,7 @@ var myApp = angular
                     }
                 }
             })
-            .when('/edit/:id/item/new/:itemId', {
+            .when('/edit/:id/item/new', {
                 templateUrl: 'views/editItem.html',
                 controller: 'InventoryController',
                 resolve: {
