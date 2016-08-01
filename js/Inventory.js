@@ -30,5 +30,9 @@ var Inventory = {
 
     removeItem: function(id) {
         delete this.items[id];
+    },
+
+    getItem: function(id) {
+        return this.items[id];
     }
 };

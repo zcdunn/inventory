@@ -2,7 +2,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.inventories = inventoryService.getInventories();
     $scope.inventory = inventoryService.getInventory($routeParams.id);
     if($scope.inventory && $routeParams.itemId) {
-        $scope.item = $scope.inventory[$routeParams.itemId];
+        $scope.item = $scope.inventory.getItem($routeParams.itemId);
         console.log("Item: ", $scope.item);
     }
     $scope.breadCrumbs = breadCrumbService;
