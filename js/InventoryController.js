@@ -1,5 +1,5 @@
 myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService, breadCrumbService) {
-    $scope.inventories = inventoryService.loadInventories();
+    $scope.inventories = inventoryService.getInventories();
     $scope.inventory = inventoryService.getInventory($routeParams.id);
     if($scope.inventory && $routeParams.itemId) {
         $scope.item = $scope.inventory[$routeParams.itemId];
@@ -22,7 +22,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.addInventory = function() {
         var input = $scope.inventory;
         var inv = inventoryService.newInventory(inventory.name, inventory.coin);
-        
+
         console.log("Input:", input);
         console.log("Inventory:", inventory);
 

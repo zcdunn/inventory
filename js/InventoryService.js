@@ -26,7 +26,7 @@ myApp.service('inventoryService', function() {
         }
     };
 
-    this.loadInventories = function() {
+    this.getInventories = function() {
         if(!this.inventories) {
             var invStr = localStorage.inventories;
             this.inventories = invStr ? JSON.parse(invStr) : this.defaultJson;
