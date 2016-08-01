@@ -49,10 +49,11 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
                 title: 'Yep',
                 onClick: function() {
                     inventoryService.removeInventory(id);
-                    $location.path('/');
                 }
             }
         });
+
+        $location.path('/');
     };
 
     $scope.newItem = function(id) {
