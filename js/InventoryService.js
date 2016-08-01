@@ -2,6 +2,8 @@ myApp.service('inventoryService', function() {
     this.newInventory = function(name, coin, items) {
         var inv = Inventory.create(name, coin, items);
         this.inventories[inv.id] = inv;
+
+        this.store();
         return inv;
     };
 
@@ -15,6 +17,12 @@ myApp.service('inventoryService', function() {
 
     this.removeInventory = function(id) {
         delete this.inventories[id];
+        this.store();
+    };
+
+    this.removeItem = function(id, itemId) {
+        this.inventories[id].removeItem(itemId);
+        this.store();
     };
 
     this.getInventory = function(id) {
@@ -37,6 +45,14 @@ myApp.service('inventoryService', function() {
 
     this.storeInventories = function() {
         localStorage.inventories = JSON.stringify(this.inventories);
+    };
+
+    this.store = function() {
+        return new Promise(function(resolve, reject) {
+            var json = JSON.stringify(this.inventories);
+            localStorage.inventories = json;
+            resolve(json);
+        });
     };
 
     this.defaultJson = {

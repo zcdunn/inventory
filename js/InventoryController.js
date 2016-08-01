@@ -20,19 +20,16 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.addInventory = function() {
-        var input = $scope.inventory;
+        var inventory = $scope.inventory;
         var inv = inventoryService.newInventory(inventory.name, inventory.coin);
 
-        console.log("Input:", input);
-        console.log("Inventory:", inventory);
-
-        inventoryService.storeInventories();
+        console.log("Input:", inventory);
+        console.log("Inventory:", inv);
         $location.path(`/view/${inv.id}`);
     };
 
     $scope.removeInventory = function(id) {
         inventoryService.removeInventory(id);
-        inventoryService.storeInventories();
     };
 
     $scope.newItem = function() {
@@ -52,8 +49,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.removeItem = function(inv, item) {
-        console.log("Removing item:", item);
-        delete inv.items[item.id];
+        inventoryService.removeItem(inv.id, item.id);
         $location.path(`/view/${inv.id}`);
     };
 });

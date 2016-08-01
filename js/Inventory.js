@@ -23,7 +23,12 @@ var Inventory = {
         var value = val || 10;
         var item = { name, value, desc };
         item.id = guid();
-        
+
+        this.items[item.id] = item;
         return item;
+    },
+
+    removeItem: function(id) {
+        delete this.items[id];
     }
 };
