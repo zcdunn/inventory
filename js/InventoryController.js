@@ -34,10 +34,17 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         $location.path(`/edit/${id}/item/new`);
     };
 
-    $scope.addItem = function(id) {
+    $scope.addItem = function(id, itemId) {
         var item = $scope.item;
 
-        inventoryService.newItem(id, item.name, item.value, item.desc);
+        if(itemId) {
+            var oldItem = inventoryService.getItem(id, itemId);
+            oldItem.name = item.name;
+            oldItem.value = item.value;
+            oldItem.desc = item.desc;
+        }
+        else inventoryService.newItem(id, item.name, item.value, item.desc);
+
         $location.path(`/view/${id}`);
     };
 
