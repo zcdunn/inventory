@@ -1,6 +1,4 @@
 myApp.service('inventoryService', function() {
-    this.inventories = this.getInventories();
-
     this.newInventory = function(name, coin, items, id) {
         var inv = Inventory.create(name, coin, items, id);
         this.inventories[inv.id] = inv;
