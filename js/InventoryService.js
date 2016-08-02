@@ -1,6 +1,8 @@
 myApp.service('inventoryService', function() {
-    this.newInventory = function(name, coin, items) {
-        var inv = Inventory.create(name, coin, items);
+    this.inventories = this.getInventories();
+
+    this.newInventory = function(name, coin, items, id) {
+        var inv = Inventory.create(name, coin, items, id);
         this.inventories[inv.id] = inv;
 
         this.store();
@@ -8,8 +10,17 @@ myApp.service('inventoryService', function() {
     };
 
     this.newItem = function(id, name, value, desc) {
-        var inventory = this.inventories[id];
-        var item = inventory.newItem(name, value, desc);
+        var inventory = this.inventories[id], item;
+
+        try {
+            item = inventory.newItem(name, value, desc);
+        }
+        catch(err) {
+            if(err instanceof TypeError) {
+                var upgradedInventory = this.upgradeInventory(inventory);
+                item = upgradedInventory.newItem(name, value, desc);
+            }
+        }
 
         this.store();
         return item;
@@ -21,7 +32,18 @@ myApp.service('inventoryService', function() {
     };
 
     this.removeItem = function(id, itemId) {
-        this.inventories[id].removeItem(itemId);
+        var inventory = this.inventories[id];
+
+        try {
+            inventory.removeItem(itemId);
+        }
+        catch(err) {
+            if(err instanceof TypeError) {
+                var upgradedInventory = this.upgradeInventory(inventory);
+                upgradedInventory.removeItem(itemId);
+            }
+        }
+
         this.store();
     };
 
@@ -35,14 +57,20 @@ myApp.service('inventoryService', function() {
     };
 
     this.getItem = function(id, itemId) {
+        var item;
+
         try {
             var inventory = this.inventories[id];
-            var item = inventory.getItem(itemId);
-            return item;
+            item = inventory.getItem(itemId);
         }
         catch(err) {
-            return undefined;
+            if(err instanceof TypeError) {
+                var upgradedInventory = this.upgradeInventory(this.inventories[id]);
+                item = upgradedInventory.getItem(itemId);
+            }
         }
+
+        return item;
     };
 
     this.getInventories = function() {
@@ -65,6 +93,10 @@ myApp.service('inventoryService', function() {
             localStorage.inventories = json;
             resolve(json);
         });
+    };
+
+    this.upgradeInventory = function(inventory) {
+        return Inventory.create(inventory.name, inventory.coin, inventory.items, inventory.id);
     };
 
     this.getDefaults = function() {
