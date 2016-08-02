@@ -14,7 +14,7 @@ myApp.service('inventoryService', function() {
             item = inventory.newItem(name, value, desc);
         }
         catch(err) {
-            if(err instanceof TypeError) {
+            if(err instanceof TypeError && inventory) {
                 var upgradedInventory = this.upgradeInventory(inventory);
                 item = upgradedInventory.newItem(name, value, desc);
             }
@@ -36,7 +36,7 @@ myApp.service('inventoryService', function() {
             inventory.removeItem(itemId);
         }
         catch(err) {
-            if(err instanceof TypeError) {
+            if(err instanceof TypeError && inventory) {
                 var upgradedInventory = this.upgradeInventory(inventory);
                 upgradedInventory.removeItem(itemId);
             }
@@ -55,15 +55,14 @@ myApp.service('inventoryService', function() {
     };
 
     this.getItem = function(id, itemId) {
-        var item;
+        var inventory = this.inventories[id], item;
 
         try {
-            var inventory = this.inventories[id];
             item = inventory.getItem(itemId);
         }
         catch(err) {
-            if(err instanceof TypeError) {
-                var upgradedInventory = this.upgradeInventory(this.inventories[id]);
+            if(err instanceof TypeError && inventory) {
+                var upgradedInventory = this.upgradeInventory(inventory);
                 item = upgradedInventory.getItem(itemId);
             }
         }
