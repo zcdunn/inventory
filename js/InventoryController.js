@@ -55,7 +55,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
             }
         });
         */
-        var invToDelete = $scope.getInventory(id);
+        var invToDelete = inventoryService.getInventory(id);
         inventoryService.removeInventory(id);
 
         var notification = document.querySelector('.mdl-js-snackbar');
