@@ -64,6 +64,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
             actionText: 'Undo',
             actionHandler: function() {
                 inventoryService.insertInventory(invToDelete);
+                $scope.inventories = inventoryService.getInventories();
             },
             timeout: 3000
         });
