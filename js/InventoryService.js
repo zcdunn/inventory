@@ -80,7 +80,13 @@ myApp.service('inventoryService', function() {
             this.inventories = invStr ? JSON.parse(invStr) : this.getDefaults();
         }
 
-        return this.inventories;
+        var values = [];
+        for(var key in this.inventories) {
+            if(this.inventories.hasOwnProperty(key))
+                values.push(this.inventories[key]);
+        }
+
+        return values;
     };
 
     this.storeInventories = function() {

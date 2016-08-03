@@ -35,26 +35,6 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.removeInventory = function(id) {
-        /*
-        showDialog({
-            title: 'Delete Inventory',
-            text: 'Are you sure you want to delete this inventory?',
-            cancelable: false,
-            negative: {
-                title: 'Cancel',
-                onClick: function() {
-                    hideDialog($('.dialog-container'));
-                }
-            },
-            positive: {
-                title: 'Yep',
-                onClick: function() {
-                    inventoryService.removeInventory(id);
-                    $scope.inventories = inventoryService.getInventories();
-                }
-            }
-        });
-        */
         var invToDelete = inventoryService.getInventory(id);
         inventoryService.removeInventory(id);
 
@@ -64,7 +44,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
             actionText: 'Undo',
             actionHandler: function() {
                 inventoryService.insertInventory(invToDelete);
-                $scope.inventories[invToDelete.id] = invToDelete;
+                $scope.inventories.push(invToDelete);
             },
             timeout: 3000
         });
