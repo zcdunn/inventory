@@ -1,4 +1,4 @@
-myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, inventoryService, breadCrumbService) {
+myApp.controller('InventoryController', function($scope, $window, $location, $routeParams, $timeout, inventoryService, breadCrumbService) {
     var id = $routeParams.id, itemId = $routeParams.itemId;
     $scope.inventories = inventoryService.getInventories();
     $scope.inventory = inventoryService.getInventory(id);
@@ -36,27 +36,25 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
 
     $scope.removeInventory = function(id) {
         var invToDelete = inventoryService.getInventory(id);
-        inventoryService.removeInventory(id);
         var index = $scope.inventories.findIndex(function(inv) {
             return inv.id === invToDelete.id;
         });
-        if(index !== -1) $scope.inventories.splice(index, 1);
+        $scope.inventories[index].delete = true;
 
         var notification = document.querySelector('.mdl-js-snackbar');
         notification.MaterialSnackbar.showSnackbar({
             message: `Deleted ${invToDelete.name}`,
             actionText: 'Undo',
             actionHandler: function() {
-                $scope.insertInventory(invToDelete, index);
+                delete $scope.inventories[index].delete;
             },
             timeout: 3000
         });
-    };
 
-    $scope.insertInventory = function(inventory, index) {
-        var i = index || $scope.inventories.length - 1;
-        inventoryService.insertInventory(inventory);
-        $scope.inventories.splice(i, 1, inventory);
+        $timeout(function() {
+            $scope.inventories.splice(index, 1);
+            inventoryService.removeInventory(id);
+        }, 3500);
     };
 
     $scope.newItem = function(id) {

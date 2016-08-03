@@ -17,7 +17,7 @@
             <div class="innerDiv">
                 <h3 class="mdl-color-text--primary">Inventories</h3>
                 <ul class="mdl-list-icon mdl-list">
-                    <li class="mdl-list__item" ng-repeat="inv in inventories">
+                    <li id="{{inv.id}}" class="mdl-list__item" ng-repeat="inv in inventories" ng-hide="inv.delete">
                         <span class="mdl-list__item-primary-content">
                             <i class="material-icons mdl-list__item-icon">shopping_basket</i>
                             <!--
