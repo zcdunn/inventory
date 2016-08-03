@@ -37,6 +37,10 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.removeInventory = function(id) {
         var invToDelete = inventoryService.getInventory(id);
         inventoryService.removeInventory(id);
+        var index = $scope.inventories.findIndex(function(inv) {
+            return inv.id === invToDelete.id;
+        });
+        if(index !== -1) $scope.inventories.splice(index, 1);
 
         var notification = document.querySelector('.mdl-js-snackbar');
         notification.MaterialSnackbar.showSnackbar({
@@ -44,7 +48,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
             actionText: 'Undo',
             actionHandler: function() {
                 inventoryService.insertInventory(invToDelete);
-                $scope.inventories.push(invToDelete);
+                $scope.inventories.splice(index, 1, invToDelete);
             },
             timeout: 3000
         });
