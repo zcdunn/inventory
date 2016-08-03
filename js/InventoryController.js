@@ -35,6 +35,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.removeInventory = function(id) {
+        /*
         showDialog({
             title: 'Delete Inventory',
             text: 'Are you sure you want to delete this inventory?',
@@ -52,6 +53,19 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
                     $scope.inventories = inventoryService.getInventories();
                 }
             }
+        });
+        */
+        var invToDelete = $scope.getInventory(id);
+        inventoryService.removeInventory(id);
+
+        var notification = document.querySelector('.mdl-js-snackbar');
+        notification.MaterialSnackbar.showSnackbar({
+            message: `Deleted ${invToDelete.name}`,
+            actionText: 'Undo',
+            actionHandler: function() {
+                inventoryService.insertInventory(invToDelete);
+            },
+            timeout: 1000
         });
     };
 

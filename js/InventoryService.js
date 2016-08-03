@@ -45,6 +45,10 @@ myApp.service('inventoryService', function() {
         this.store();
     };
 
+    this.insertInventory = function(inventory) {
+        this.inventories[inventory.id] = inventory;
+    };
+
     this.getInventory = function(id) {
         try {
             return this.inventories[id];
