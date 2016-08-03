@@ -36,27 +36,23 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
 
     $scope.removeInventory = function(id) {
         var invToDelete = inventoryService.getInventory(id);
-        var index = $scope.inventories.findIndex(function(inv) {
-            return inv.id === invToDelete.id;
-        });
-        $scope.inventories[index].delete = true;
+        invToDelete.delete = true;
+
+        var timeout = $timeout(function() {
+            if(invToDelete.delete)
+                inventoryService.removeInventory(id);
+        }, 4500);
 
         var notification = document.querySelector('.mdl-js-snackbar');
         notification.MaterialSnackbar.showSnackbar({
             message: `Deleted ${invToDelete.name}`,
             actionText: 'Undo',
             actionHandler: function() {
-                delete $scope.inventories[index].delete;
+                delete invToDelete.delete;
+                $timeout.cancel(timeout);
             },
             timeout: 3000
         });
-
-        $timeout(function() {
-            if($scope.inventories[index].delete) {
-                $scope.inventories.splice(index, 1);
-                inventoryService.removeInventory(id);
-            }
-        }, 3500);
     };
 
     $scope.newItem = function(id) {
