@@ -65,7 +65,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
             actionHandler: function() {
                 inventoryService.insertInventory(invToDelete);
             },
-            timeout: 1000
+            timeout: 3000
         });
     };
 
