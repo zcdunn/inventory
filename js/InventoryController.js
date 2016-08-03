@@ -52,8 +52,10 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         });
 
         $timeout(function() {
-            $scope.inventories.splice(index, 1);
-            inventoryService.removeInventory(id);
+            if($scope.inventories[index].delete) {
+                $scope.inventories.splice(index, 1);
+                inventoryService.removeInventory(id);
+            }
         }, 3500);
     };
 
