@@ -47,11 +47,16 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
             message: `Deleted ${invToDelete.name}`,
             actionText: 'Undo',
             actionHandler: function() {
-                inventoryService.insertInventory(invToDelete);
-                $scope.inventories.splice(index, 1, invToDelete);
+                $scope.insertInventory(invToDelete, index);
             },
             timeout: 3000
         });
+    };
+
+    $scope.insertInventory = function(inventory, index) {
+        var i = index || $scope.inventories.length - 1;
+        inventoryService.insertInventory(inventory);
+        $scope.inventories.splice(i, 1, inventory);
     };
 
     $scope.newItem = function(id) {
