@@ -1,12 +1,3 @@
-.dialog-container.not-in-use {
-    display:none;
-    opacity:0;
-}
-
-.dialog-container.in-use {
-    opacity:1;
-}
-
 .dialog-container,
 .loading-container {
     position: absolute;
@@ -16,6 +7,7 @@
     left: 0;
     overflow: scroll;
     background: rgba(0, 0, 0, 0.4);
+    opacity:0;
     z-index: 9999;
     -webkit-transition: opacity 400ms ease-in;
     -moz-transition: opacity 400ms ease-in;
