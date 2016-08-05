@@ -78,7 +78,7 @@ function showDialog(options) {
     }
     setTimeout(function() {
         // dialog.css({opacity: 1});
-        dialog.removeClass('not-in-use');
+        dialog.removeClass('not-in-use').addClass('in-use');
         if(opts.onLoaded)
             opts.onLoaded();
     }, 1);
@@ -86,8 +86,8 @@ function showDialog(options) {
 
 function hideDialog(dialog) {
     $(document).unbind("keyup.dialog");
+    dialog.removeClass('in-use').addClass('not-in-use');
     // dialog.css({opacity: 0});
-    dialog.addClass('not-in-use');
     /*
     setTimeout(function() {
         dialog.remove();
