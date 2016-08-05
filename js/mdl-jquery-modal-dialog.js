@@ -28,39 +28,38 @@ function showDialog(options) {
     $(document).unbind("keyup.dialog");
     var dialog = $(opts.selector).remove();
     var content = dialog.find('.mdl-card');
+    var negButton = dialog.find(opts.negative.selector);
+    var posButton = dialog.find(opts.positive.selector);
 
-    if(opts.negative || opts.positive) {
-        if(opts.negative) {
-            opt.negative = $.extend({
-                selector: '#negative',
-                title: 'Cancel',
-                onClick: undefined
-            }, opts.negative);
-            var negButton = dialog.find(opts.negative.selector);
-            negButton.click(function(e) {
-                e.preventDefault();
-                if(!opts.negative.onClick)
-                    hideDialog(dialog);
-                else
-                    opts.negative.onClick(e);
-            });
-        }
-        if(opts.positive) {
-            opts.positive = $.extend({
-                selector: '#positive',
-                title: 'OK',
-                onClick: undefined
-            }, opts.positive);
-            var posButton = dialog.find(opts.positive.selector);
-            posButton.click(function(e) {
-                e.preventDefault();
-                e.data = $.extend({ dialog }, e.data);
-                if(!opts.positive.onClick)
-                    hideDialog(dialog);
-                else
-                    opts.positive.onClick(e);
-            });
-        }
+    if(negButton.length >= 1) {
+        opt.negative = $.extend({
+            selector: '#negative',
+            title: 'Cancel',
+            onClick: undefined
+        }, opts.negative);
+        negButton.click(function(e) {
+            e.preventDefault();
+            e.data = $.extend({ dialog }, e.data);
+            if(!opts.negative.onClick)
+                hideDialog(dialog);
+            else
+                opts.negative.onClick(e);
+        });
+    }
+    if(posButton.length >= 1) {
+        opts.positive = $.extend({
+            selector: '#positive',
+            title: 'OK',
+            onClick: undefined
+        }, opts.positive);
+        posButton.click(function(e) {
+            e.preventDefault();
+            e.data = $.extend({ dialog }, e.data);
+            if(!opts.positive.onClick)
+                hideDialog(dialog);
+            else
+                opts.positive.onClick(e);
+        });
     }
     $('body').append(dialog);
     componentHandler.upgradeDom();
