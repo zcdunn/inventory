@@ -84,9 +84,8 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
                     $scope.$apply(function() {
                         console.log("Sell Price:", $scope.coin);
                         inventoryService.removeItem(inv.id, item.id);
-                        hideDialog($('.dialog-container'));
+                        hideDialog(e.data.dialog);
                     });
-                    $location.path(`/view/${inv.id}`);
                 }
             }
         });

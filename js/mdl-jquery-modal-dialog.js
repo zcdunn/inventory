@@ -54,6 +54,7 @@ function showDialog(options) {
             var posButton = dialog.find(opts.positive.selector);
             posButton.click(function(e) {
                 e.preventDefault();
+                e.data = $.extend({ dialog }, e.data);
                 if(!opts.positive.onClick)
                     hideDialog(dialog);
                 else
