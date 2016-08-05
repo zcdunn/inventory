@@ -55,16 +55,25 @@
     <span class="visuallyhidden">New Item</span>
 </button>
 
-<div class="dialog-container not-in-use">
+<div class="dialog-container">
     <div class="mdl-card mdl-shadow--16dp">
         <h5 id="dialog-title">Remove Item</h5>
         <p id="dialog-content">
-            If the item is being sold, use the form below to set the sell price.
+            Are you sure you want to remove this item? <br />
+            If the item is being sold, enter the sell price using the form below.
             <form>
                 <fieldset>
                     <div class="mdl-textfield mdl-js-textfield">
-                        <input type="number" id="price" class="mdl-textfield__input" ng-model="price" autocomplete="off" value="0" required />
-                        <label for="price" class="mdl-textfield__label">Sell Price</label>
+                        <input type="number" id="gp" class="mdl-textfield__input" ng-model="coin.gp" autocomplete="off" required />
+                        <label for="gp" class="mdl-textfield__label">Gold Pieces</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input type="number" id="sp" class="mdl-textfield__input" ng-model="coin.sp" autocomplete="off" required />
+                        <label for="sp" class="mdl-textfield__label">Silver Pieces</label>
+                    </div>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input type="number" id="cp" class="mdl-textfield__input" ng-model="coin.cp" autocomplete="off" required />
+                        <label for="cp" class="mdl-textfield__label">Copper Pieces</label>
                     </div>
                 </fieldset>
             </form>

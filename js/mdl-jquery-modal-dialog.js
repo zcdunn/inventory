@@ -17,7 +17,7 @@ function hideLoading() {
 }
 
 function showDialog(options) {
-    opts = $.extend({
+    var opts = $.extend({
         selector: '.dialog-container',
         negative: false,
         positive: false,
@@ -28,37 +28,36 @@ function showDialog(options) {
     $(document).unbind("keyup.dialog");
     var dialog = $(opts.selector).remove();
     var content = dialog.find('.mdl-card');
-    var buttonBar = dialog.find('.dialog-button-bar');
 
-    if(buttonBar.length !== 0) {
+    if(opts.negative || opts.positive) {
         if(opts.negative) {
             opt.negative = $.extend({
                 selector: '#negative',
                 title: 'Cancel',
-                onClick: function() {
-                    return false;
-                }
+                onClick: undefined
             }, opts.negative);
             var negButton = buttonBar.find(opts.negative.selector);
             negButton.click(function(e) {
                 e.preventDefault();
-                if(!opts.negative.onClick(e))
+                if(!opts.negative.onClick)
                     hideDialog(dialog);
+                else
+                    opts.negative.onClick(e);
             });
         }
         if(opts.positive) {
             opts.positive = $.extend({
                 selector: '#positive',
                 title: 'OK',
-                onClick: function() {
-                    return false;
-                }
+                onClick: undefined
             }, opts.positive);
             var posButton = buttonBar.find(opts.positive.selector);
             posButton.click(function(e) {
                 e.preventDefault();
-                if(!opts.positive.onClick(e))
+                if(!opts.positive.onClick)
                     hideDialog(dialog);
+                else
+                    opts.positive.onClick(e);
             });
         }
     }
