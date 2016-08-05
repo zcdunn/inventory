@@ -54,3 +54,24 @@
     <i class="material-icons" role="presentation">add</i>
     <span class="visuallyhidden">New Item</span>
 </button>
+
+<div class="dialog-container" style="display:none;">
+    <div class="mdl-card mdl-shadow--16dp">
+        <h5 id="dialog-title">Remove Item</h5>
+        <p id="dialog-content">
+            If the item is being sold, use the form below to set the sell price.
+            <form>
+                <fieldset>
+                    <div class="mdl-textfield mdl-js-textfield">
+                        <input type="number" id="price" class="mdl-textfield__input" ng-model="price" autocomplete="off" value="0" required />
+                        <label for="price" class="mdl-textfield__label">Sell Price</label>
+                    </div>
+                </fieldset>
+            </form>
+        </p>
+        <div class="mdl-card__actions dialog-button-bar">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="negative">Cancel</button>
+            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="positive">Accept</button>
+        </div>
+    </div>
+</div>
