@@ -36,7 +36,7 @@ function showDialog(options) {
                 title: 'Cancel',
                 onClick: undefined
             }, opts.negative);
-            var negButton = buttonBar.find(opts.negative.selector);
+            var negButton = dialog.find(opts.negative.selector);
             negButton.click(function(e) {
                 e.preventDefault();
                 if(!opts.negative.onClick)
@@ -51,7 +51,7 @@ function showDialog(options) {
                 title: 'OK',
                 onClick: undefined
             }, opts.positive);
-            var posButton = buttonBar.find(opts.positive.selector);
+            var posButton = dialog.find(opts.positive.selector);
             posButton.click(function(e) {
                 e.preventDefault();
                 if(!opts.positive.onClick)
@@ -76,7 +76,8 @@ function showDialog(options) {
         });
     }
     setTimeout(function() {
-        dialog.css({opacity: 1});
+        // dialog.css({opacity: 1});
+        dialog.removeClass('not-in-use');
         if(opts.onLoaded)
             opts.onLoaded();
     }, 1);
@@ -84,7 +85,8 @@ function showDialog(options) {
 
 function hideDialog(dialog) {
     $(document).unbind("keyup.dialog");
-    dialog.css({opacity: 0});
+    dialog.addClass('not-in-use');
+    // dialog.css({opacity: 0});
     /*
     setTimeout(function() {
         dialog.remove();
