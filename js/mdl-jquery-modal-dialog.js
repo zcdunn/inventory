@@ -62,7 +62,7 @@ function showDialog(options) {
             });
         }
     }
-    $('body').removeClass('not-in-use').append(dialog);
+    $('body').append(dialog);
     componentHandler.upgradeDom();
     if(opts.cancelable) {
         dialog.click(function() {
@@ -78,6 +78,7 @@ function showDialog(options) {
     }
     setTimeout(function() {
         // dialog.css({opacity: 1});
+        dialog.removeClass('not-in-use');
         if(opts.onLoaded)
             opts.onLoaded();
     }, 1);
