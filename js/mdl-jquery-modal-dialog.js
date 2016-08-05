@@ -62,7 +62,7 @@ function showDialog(options) {
             });
         }
     }
-    $('body').append(dialog);
+    $('body').removeClass('not-in-use').append(dialog);
     componentHandler.upgradeDom();
     if(opts.cancelable) {
         dialog.click(function() {

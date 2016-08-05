@@ -1,3 +1,7 @@
+.dialog-container.not-in-use {
+    display:none;
+}
+
 .dialog-container,
 .loading-container {
     position: absolute;
