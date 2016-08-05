@@ -77,11 +77,13 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
 
     $scope.removeItem = function(inv, item) {
         showDialog({
-            positive: function(e) {
-                console.log("Sell Price:", $scope.coin);
-                inventoryService.removeItem(inv.id, item.id);
-                hideDialog($('.dialog-container'));
-                $location.path(`/view/${inv.id}`);
+            positive: {
+                onClick: function(e) {
+                    console.log("Sell Price:", $scope.coin);
+                    inventoryService.removeItem(inv.id, item.id);
+                    hideDialog($('.dialog-container'));
+                    $location.path(`/view/${inv.id}`);
+                }
             }
         });
     };
