@@ -38,18 +38,20 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         var invToDelete = inventoryService.getInventory(id);
         invToDelete.delete = true;
 
-        var timeout = $timeout(function() {
+        var deleteTimer = $timeout(function() {
             if(invToDelete.delete)
                 inventoryService.removeInventory(id);
-        }, 4500);
+        }, 6000);
 
         var notification = document.querySelector('.mdl-js-snackbar');
         notification.MaterialSnackbar.showSnackbar({
             message: `Deleted ${invToDelete.name}`,
             actionText: 'Undo',
             actionHandler: function() {
-                delete invToDelete.delete;
-                $timeout.cancel(timeout);
+                $scope.$apply(function() {
+                    delete invToDelete.delete;
+                });
+                $timeout.cancel(deleteTimer);
             },
             timeout: 3000
         });
@@ -79,9 +81,11 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         showDialog({
             positive: {
                 onClick: function(e) {
-                    console.log("Sell Price:", $scope.coin);
-                    inventoryService.removeItem(inv.id, item.id);
-                    hideDialog($('.dialog-container'));
+                    $scope.$apply(function() {
+                        console.log("Sell Price:", $scope.coin);
+                        inventoryService.removeItem(inv.id, item.id);
+                        hideDialog($('.dialog-container'));
+                    });
                     $location.path(`/view/${inv.id}`);
                 }
             }
