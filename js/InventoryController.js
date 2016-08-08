@@ -19,9 +19,9 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.addInventory = function(id) {
-        var inventoryUpdate = $scope.inventory;
-        var inv = id ? inventoryService.updateInventory(id, inventoryUpdate)
-                     : inventoryService.newInventory(inventory.name, inventory.coin);
+        var incomingInv = $scope.inventory;
+        var inv = id ? inventoryService.updateInventory(id, incomingInv)
+                     : inventoryService.newInventory(incomingInv.name, incomingInv.coin);
 
         $location.path(`/view/${inv.id}`);
     };
@@ -54,9 +54,9 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.addItem = function(id, itemId) {
-        var itemUpdate = $scope.item;
-        var item = itemId ? inventoryService.updateItem(id, itemId, itemUpdate)
-                          : inventoryService.newItem(id, item.name, item.value, item.desc);
+        var incomingItem = $scope.item;
+        var item = itemId ? inventoryService.updateItem(id, itemId, incomingItem)
+                          : inventoryService.newItem(id, incomingItem.name, incomingItem.value, incomingItem.desc);
 
         $location.path(`/view/${id}`);
     };
