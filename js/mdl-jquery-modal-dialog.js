@@ -19,8 +19,14 @@ function hideLoading() {
 function showDialog(options) {
     var opts = $.extend({
         selector: '.dialog-container',
-        negative: false,
-        positive: false,
+        negative: {
+            selector: '#negative',
+            onClick: undefined
+        },
+        positive: {
+            selectory: '#positive',
+            onClick: undefined
+        },
         cancelable: true,
         onLoaded: false
     }, options);
@@ -32,11 +38,6 @@ function showDialog(options) {
     var posButton = dialog.find(opts.positive.selector);
 
     if(negButton.length >= 1) {
-        opt.negative = $.extend({
-            selector: '#negative',
-            title: 'Cancel',
-            onClick: undefined
-        }, opts.negative);
         negButton.click(function(e) {
             e.preventDefault();
             e.data = $.extend({ dialog }, e.data);
@@ -47,11 +48,6 @@ function showDialog(options) {
         });
     }
     if(posButton.length >= 1) {
-        opts.positive = $.extend({
-            selector: '#positive',
-            title: 'OK',
-            onClick: undefined
-        }, opts.positive);
         posButton.click(function(e) {
             e.preventDefault();
             e.data = $.extend({ dialog }, e.data);

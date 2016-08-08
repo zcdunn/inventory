@@ -23,6 +23,7 @@ header .header-icon {
     margin-right:40px;
     margin-bottom:40px;
     z-index:900;
+    transition:margin .25s ease-out;
 }
 
 span.item-value {
@@ -92,7 +93,7 @@ a.mdl-btn-link {
     .mdl-crumbs {
         width:100%;
     }
-    
+
     .innerDiv {
         margin-left:auto;
         margin-right:auto;
