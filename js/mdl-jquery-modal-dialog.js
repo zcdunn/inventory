@@ -17,7 +17,9 @@ function hideLoading() {
 }
 
 function showDialog(options) {
-    var opts = $.extend({
+    // the true argument makes the copy recursive
+    // so negative/positive don't get overwritten 
+    var opts = $.extend(true, {
         selector: '.dialog-container',
         negative: {
             selector: '#negative',
