@@ -61,9 +61,9 @@ var Inventory = {
     sellItem: function(id, coin) {
         var item = this.removeItem(id);
 
-        this.coin.gp += coin.gp;
-        this.coin.sp += coin.sp;
-        this.coin.cp += coin.cp;
+        if(!isNaN(coin.gp)) this.coin.gp += coin.gp;
+        if(!isNaN(coin.sp)) this.coin.sp += coin.sp;
+        if(!isNaN(coin.cp)) this.coin.cp += coin.cp;
 
         return item;
     },
@@ -71,8 +71,8 @@ var Inventory = {
     buyItem: function(item, coin) {
         this.items[item.id] = item;
 
-        this.coin.gp -= coin.gp;
-        this.coin.sp -= coin.sp;
-        this.coin.cp -= coin.cp;
+        if(!isNaN(coin.gp)) this.coin.gp -= coin.gp;
+        if(!isNaN(coin.sp)) this.coin.sp -= coin.sp;
+        if(!isNaN(coin.cp)) this.coin.cp -= coin.cp;
     }
 };

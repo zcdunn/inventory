@@ -62,19 +62,6 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.removeItem = function(inv, item) {
-        /*
-        showDialog({
-            positive: {
-                onClick: function(e) {
-                    $scope.$apply(function() {
-                        console.log("Sell Price:", $scope.coin);
-                        inventoryService.removeItem(inv.id, item.id);
-                        hideDialog(e.data.dialog);
-                    });
-                }
-            }
-        });
-        */
         var coin = $scope.coin;
         var soldItem = inventoryService.sellItemFromInventory(inv.id, item.id, coin);
 
@@ -83,7 +70,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
             if(buyingInventory)
                 inventoryService.buyItemForInventory(buyingInventory.id, soldItem, coin);
         */
-        
+
         $location.path(`/view/${id}`);
     };
 

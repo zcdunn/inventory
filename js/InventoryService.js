@@ -133,6 +133,7 @@ myApp.service('inventoryService', function() {
             }
         }
 
+        this.store();
         return item;
     };
 
@@ -148,6 +149,8 @@ myApp.service('inventoryService', function() {
                 item = upgradedInventory.buyItem(item, coin);
             }
         }
+
+        this.store();
     };
 
     this.storeInventories = function() {
