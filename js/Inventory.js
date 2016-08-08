@@ -20,7 +20,7 @@ var Inventory = {
     },
 
     newItem: function(name, val, desc, id) {
-        var value = val || 10;
+        var value = Object.assign({}, { gp: 0, sp: 0, cp: 0 }, val);
         var item = { name, value, desc };
         item.id = id || guid();
 

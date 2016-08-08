@@ -27,12 +27,14 @@
                 <ul id="items" class="mdl-list-icon mdl-list">
                     <li class="mdl-list__item" ng-repeat="item in inventory.items track by $index">
                         <span class="item-name mdl-list__item-primary-content">{{item.name}}</span>
+                        <!--
                         <span class="item-value">{{item.value}}</span>
                         <span class="mdl-list__item-secondary-action">
                             <label class="mdl-js-ripple-effect" data-upgraded=",MaterialRipple">
                                 <i class="material-icons">xx</i>
                             </label>
                         </span>
+                        -->
                         <span class="mdl-list__item-secondary-action">
                             <label class="mdl-js-ripple-effect" data-upgraded=",MaterialRipple">
                                 <a ng-href="edit/{{inventory.id}}/item/{{item.id}}" class="mdl-btn-link"><i class="material-icons">edit</i></a>
@@ -40,7 +42,6 @@
                         </span>
                         <span class="mdl-list__item-secondary-action">
                             <label class="mdl-js-ripple-effect" data-upgraded=",MaterialRipple">
-                                <!--<a ng-click="removeItem(inventory, item)" class="mdl-btn-link"><i class="material-icons">clear</i></a>-->
                                 <a ng-href="remove/{{inventory.id}}/item/{{item.id}}" class="mdl-btn-link"><i class="material-icons">clear</i></a>
                             </label>
                         </span>
@@ -55,33 +56,3 @@
     <i class="material-icons" role="presentation">add</i>
     <span class="visuallyhidden">New Item</span>
 </button>
-
-<div class="dialog-container not-in-use">
-    <div class="mdl-card mdl-shadow--16dp">
-        <h5 id="dialog-title">Remove Item</h5>
-        <p id="dialog-content">
-            Are you sure you want to remove this item? <br />
-            If the item is being sold, enter the sell price using the form below.
-            <form>
-                <fieldset>
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input type="number" id="gp" class="mdl-textfield__input" ng-model="coin.gp" autocomplete="off" required />
-                        <label for="gp" class="mdl-textfield__label">Gold Pieces</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input type="number" id="sp" class="mdl-textfield__input" ng-model="coin.sp" autocomplete="off" required />
-                        <label for="sp" class="mdl-textfield__label">Silver Pieces</label>
-                    </div>
-                    <div class="mdl-textfield mdl-js-textfield">
-                        <input type="number" id="cp" class="mdl-textfield__input" ng-model="coin.cp" autocomplete="off" required />
-                        <label for="cp" class="mdl-textfield__label">Copper Pieces</label>
-                    </div>
-                </fieldset>
-            </form>
-        </p>
-        <div class="mdl-card__actions dialog-button-bar">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="negative">Cancel</button>
-            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="positive">Accept</button>
-        </div>
-    </div>
-</div>

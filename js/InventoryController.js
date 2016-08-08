@@ -61,7 +61,12 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         $location.path(`/view/${id}`);
     };
 
-    $scope.removeItem = function(inv, item) {
+    $scope.removeItem = function(id, itemId) {
+        var item = inventoryService.removeItem(id, itemId);
+        $location.path(`/view/${id}`);
+    };
+
+    $scope.sellItem = function(inv, item) {
         var coin = $scope.coin;
         var soldItem = inventoryService.sellItemFromInventory(inv.id, item.id, coin);
 
