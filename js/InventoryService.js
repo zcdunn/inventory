@@ -45,6 +45,40 @@ myApp.service('inventoryService', function() {
         this.store();
     };
 
+    this.updateInventory = function(id, invUpdate) {
+        var inventory = this.inventories[id];
+
+        try {
+            inventory.update(invUpdate);
+        }
+        catch(err) {
+            if(err instanceof TypeError && inventory) {
+                var upgradedInventory = this.upgradeInventory(inventory);
+                upgradedInventory.update(invUpdate);
+            }
+        }
+
+        this.store();
+        return inventory;
+    };
+
+    this.updateItem = function(id, itemId, itemUpdate) {
+        var inventory = this.inventories[id], item;
+
+        try {
+            item = inventory.updateItem(itemId, itemUpdate);
+        }
+        catch(err) {
+            if(err instanceof TypeError && inventory) {
+                var upgradedInventory = this.upgradeInventory(inventory);
+                item = upgradedInventory.updateItem(itemId, itemUpdate);
+            }
+        }
+
+        this.store();
+        return item;
+    };
+
     this.getInventory = function(id) {
         try {
             return this.inventories[id];
