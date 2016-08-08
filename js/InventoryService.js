@@ -30,19 +30,20 @@ myApp.service('inventoryService', function() {
     };
 
     this.removeItem = function(id, itemId) {
-        var inventory = this.inventories[id];
+        var inventory = this.inventories[id], item;
 
         try {
-            inventory.removeItem(itemId);
+            item = inventory.removeItem(itemId);
         }
         catch(err) {
             if(err instanceof TypeError && inventory) {
                 var upgradedInventory = this.upgradeInventory(inventory);
-                upgradedInventory.removeItem(itemId);
+                item = upgradedInventory.removeItem(itemId);
             }
         }
 
         this.store();
+        return item;
     };
 
     this.updateInventory = function(id, invUpdate) {
@@ -117,6 +118,36 @@ myApp.service('inventoryService', function() {
         }
 
         return values;
+    };
+
+    this.sellItemFromInventory = function(id, itemId, coin) {
+        var inventory = this.inventories[id], item;
+
+        try {
+            item = inventory.sellItem(itemId, coin);
+        }
+        catch(err) {
+            if(err instanceof TypeError && inventory) {
+                var upgradedInventory = this.upgradeInventory(inventory);
+                item = upgradedInventory.sellItem(itemId, coin);
+            }
+        }
+
+        return item;
+    };
+
+    this.buyItemForInventory = function(id, item, coin) {
+        var inventory = this.inventories[id];
+
+        try {
+            item = inventory.buyItem(item, coin);
+        }
+        catch(err) {
+            if(err instanceof TypeError && inventory) {
+                var upgradedInventory = this.upgradeInventory(inventory);
+                item = upgradedInventory.buyItem(item, coin);
+            }
+        }
     };
 
     this.storeInventories = function() {

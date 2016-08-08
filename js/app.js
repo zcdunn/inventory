@@ -98,6 +98,20 @@ var myApp = angular
                     }
                 }
             })
+            .when('/remove/:id/item/:itemId', {
+                templateUrl: 'views/removeItem.html',
+                controller: 'InventoryController',
+                resolve: {
+                    breadCrumb: function($location) {
+                        var path = $location.path().substring(1);
+
+                        return {
+                            display: "Remove Item",
+                            path
+                        };
+                    }
+                }
+            })
             .otherwise({
                 redirectTo: '/'
             });

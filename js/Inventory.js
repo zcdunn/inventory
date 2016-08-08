@@ -29,7 +29,9 @@ var Inventory = {
     },
 
     removeItem: function(id) {
+        var item = this.items[id];
         delete this.items[id];
+        return item;
     },
 
     getItem: function(id) {
@@ -54,5 +56,23 @@ var Inventory = {
         item.desc = itemUpdate.desc || item.desc;
         if(itemUpdate.weight !== undefined) item.weight = itemUpdate.weight;
         return item;
+    },
+
+    sellItem: function(id, coin) {
+        var item = this.removeItem(id);
+
+        this.coin.gp += coin.gp;
+        this.coin.sp += coin.sp;
+        this.coin.cp += coin.cp;
+
+        return item;
+    },
+
+    buyItem: function(item, coin) {
+        this.items[item.id] = item;
+
+        this.coin.gp -= coin.gp;
+        this.coin.sp -= coin.sp;
+        this.coin.cp -= coin.cp;
     }
 };

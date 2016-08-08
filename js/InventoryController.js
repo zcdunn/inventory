@@ -5,6 +5,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.item = inventoryService.getItem(id, itemId) || {};
     $scope.breadCrumbs = breadCrumbService;
 
+    // TODO: can this method be moved into BreadCrumbService.js?
     $scope.$on('$routeChangeSuccess', function (e, curr, prev) {
         breadCrumbService.update(curr.locals.breadCrumb);
     });
@@ -61,6 +62,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.removeItem = function(inv, item) {
+        /*
         showDialog({
             positive: {
                 onClick: function(e) {
@@ -72,5 +74,20 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
                 }
             }
         });
+        */
+        var coin = $scope.coin;
+        var soldItem = inventoryService.sellItemFromInventory(inv.id, item.id, coin);
+
+        /* TODO: Add a destination inventory to removeItem form
+            var buyingInventory = $scope.buyingInventory;
+            if(buyingInventory)
+                inventoryService.buyItemForInventory(buyingInventory.id, soldItem, coin);
+        */
+        
+        $location.path(`/view/${id}`);
+    };
+
+    $scope.cancelRemoveItem = function(id) {
+        $location.path(`/view/${id}`);
     };
 });

@@ -1,0 +1,43 @@
+<section class="section--header mdl-grid mdl-grid--no-spacing mdl-cell--hide-tablet mdl-cell--hide-phone">
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="mdl-content mdl-color--white mdl-shadow--6dp content mdl-cell mdl-cell--8-col mdl-cell--hide-tablet mdl-cell--hide-phone">
+        <!--<img src="images/something.png" alt="" />-->
+    </div>
+</section>
+<section class="section--main">
+    <div class="mdl-container mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+        <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <div class="mdl-crumbs mdl-color-text--grey-500">
+                <ul>
+                    <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
+                    <li>{{breadCrumbs.current.display}}</li>
+                </ul>
+            </div>
+            <div class="innerDiv">
+                <h3 class="mdl-color-text--primary">Remove Item</h3>
+                <form>
+                    <fieldset>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input type="number" id="gp" class="mdl-textfield__input" ng-model="coin.gp" autocomplete="off" />
+                            <label for="gp" class="mdl-textfield__label">Gold Pieces</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input type="number" id="sp" class="mdl-textfield__input" ng-model="coin.sp" autocomplete="off" />
+                            <label for="sp" class="mdl-textfield__label">Silver Pieces</label>
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input type="number" id="cp" class="mdl-textfield__input" ng-model="coin.cp" autocomplete="off" />
+                            <label for="cp" class="mdl-textfield__label">Copper Pieces</label>
+                        </div>
+                    </fieldset>
+
+                    <div class="mdl-card__actions dialog-button-bar">
+                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="cancelRemoveItem(inventory.id)">Cancel</button>
+                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-submit="removeItem(inventory, item)">Accept</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
