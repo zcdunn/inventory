@@ -66,9 +66,9 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         $location.path(`/view/${id}`);
     };
 
-    $scope.sellItem = function(inv, item) {
+    $scope.sellItem = function(id, itemId) {
         var coin = $scope.coin;
-        var soldItem = inventoryService.sellItemFromInventory(inv.id, item.id, coin);
+        var soldItem = inventoryService.sellItemFromInventory(id, itemId, coin);
 
         /* TODO: Add a destination inventory to removeItem form
             var buyingInventory = $scope.buyingInventory;
