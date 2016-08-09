@@ -23,11 +23,11 @@
                 </p>
                 <form>
                     <fieldset>
-                        <select id="toInventory" class="mdl-selectfield" ng-model="toInventory">
-                            <option disabled selected>Sell to</option>
-                            <option ng-repeat="inv in inventories" ng-if="inv.id !== inventory.id" value="{{inv.id}}">{{inv.name}}</option>
-                        </select>
-                        <!-- <label for="toInventory" class="mdl-selectfield__label">Sell to</label> -->
+                        <div class="mdl-selectfield">
+                            <select id="toInventory" class="mdl-selectfield__select" ng-model="toInventory" ng-options="inv.id as inv.name for inv in inventories">
+                            </select>
+                            <!-- <label for="toInventory" class="mdl-selectfield__label">Sell to</label> -->
+                        </div>
                     </fieldset>
                     <fieldset>
                         <legend class="mdl-color-text--primary">Price</legend>

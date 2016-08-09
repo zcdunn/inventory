@@ -66,13 +66,13 @@ a.mdl-btn-link {
     color:rgba(0,0,0,0.75);
 }
 
-.mdl-textfield {
+.mdl-textfield, .mdl-selectfield {
     display:block;
     margin-left:auto;
     margin-right:auto;
 }
 
-.mdl-selectfield {
+.mdl-selectfield__select {
     -webkit-appearance: none;
     border: none;
     border-bottom: 1px solid rgba(0,0,0,0.12);
@@ -82,7 +82,7 @@ a.mdl-btn-link {
     width: 10em;
 }
 
-.mdl-selectfield:after {
+.mdl-selectfield__select:after {
     position: absolute;
     top: 0.75em;
     right: 0.5em;
@@ -96,11 +96,11 @@ a.mdl-btn-link {
     pointer-events: none;
 }
 
-.mdl-selectfield:focus {
+.mdl-selectfield__select:focus {
     outline:none;
 }
 
-.mdl-selectfield.invalid {
+.mdl-selectfield__select.invalid {
     color:rgba(0,0,0,0.26);
 }
 
