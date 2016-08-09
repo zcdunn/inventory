@@ -42,7 +42,7 @@ var myApp = angular
                     }
                 }
             })
-            .when('/edit/:id/item/new', {
+            .when('/new/:id/item', {
                 templateUrl: 'views/editItem.html',
                 controller: 'InventoryController',
                 resolve: {
@@ -70,20 +70,6 @@ var myApp = angular
                     }
                 }
             })
-            .when('/view/:id', {
-                templateUrl: 'views/viewInventory.html',
-                controller: 'InventoryController',
-                resolve: {
-                    breadCrumb: function($location) {
-                        var path = $location.path().substring(1);
-
-                        return {
-                            display: "View Inventory",
-                            path
-                        };
-                    }
-                }
-            })
             .when('/view/:id/item/:itemId', {
                 templateUrl: 'views/viewItem.html',
                 controller: 'InventoryController',
@@ -93,6 +79,20 @@ var myApp = angular
 
                         return {
                             display: "View Item",
+                            path
+                        };
+                    }
+                }
+            })
+            .when('/view/:id', {
+                templateUrl: 'views/viewInventory.html',
+                controller: 'InventoryController',
+                resolve: {
+                    breadCrumb: function($location) {
+                        var path = $location.path().substring(1);
+
+                        return {
+                            display: "View Inventory",
                             path
                         };
                     }

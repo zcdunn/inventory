@@ -1,3 +1,29 @@
-<h3>{{item.name}}</h3>
-<h4>Value: {{item.value}}</h4>
-<p ng-bind="item.desc"></p>
+<section class="section--header mdl-grid mdl-grid--no-spacing mdl-cell--hide-tablet mdl-cell--hide-phone">
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="mdl-content mdl-color--white mdl-shadow--6dp content mdl-cell mdl-cell--8-col mdl-cell--hide-tablet mdl-cell--hide-phone">
+        <!--<img src="images/something.png" alt="" />-->
+    </div>
+</section>
+<section class="section--main">
+    <div class="mdl-container mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+        <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <div class="mdl-crumbs mdl-color-text--grey-500">
+                <ul>
+                    <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
+                    <li>{{breadCrumbs.current.display}}</li>
+                </ul>
+            </div>
+            <div class="innerDiv">
+                <h3 class="mdl-color-text--primary">{{item.name}}</h3>
+                <h4 class="mdl-color-text--primary">Value</h4>
+                <p class="coin">
+                    <span>{{item.value.gp}} gp</span>
+                    <span>{{item.value.sp}} sp</span>
+                    <span>{{item.value.cp}} cp</span>
+                </p>
+                <p ng-bind="item.desc"></p>
+            </div>
+        </div>
+    </div>
+</section>

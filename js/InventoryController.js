@@ -50,7 +50,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     };
 
     $scope.newItem = function(id) {
-        $location.path(`/edit/${id}/item/new`);
+        $location.path(`/new/${id}/item`);
     };
 
     $scope.addItem = function(id, itemId) {
