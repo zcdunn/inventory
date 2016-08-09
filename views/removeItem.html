@@ -40,7 +40,7 @@
                     <div class="mdl-card__actions dialog-button-bar">
                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="cancelRemoveItem(inventory.id)">Cancel</button>
                         <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="removeItem(inventory.id, item.id)">Remove</button>
-                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="sellItem(inventory.id, item.id)" ng-disabled="!removeItem.gp.length && !removeItem.sp.length && !removeItem.cp.length">Sell</button>
+                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="sellItem(inventory.id, item.id)" ng-disabled="!removeItem.gp && !removeItem.sp && !removeItem.cp">Sell</button>
                     </div>
                 </form>
             </div>
