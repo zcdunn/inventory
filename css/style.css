@@ -72,6 +72,38 @@ a.mdl-btn-link {
     margin-right:auto;
 }
 
+.mdl-selectfield {
+    -webkit-appearance: none;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    padding: 4px 0;
+    font-size: 14px;
+    background-color: transparent;
+    width: 10em;
+}
+
+.mdl-selectfield:after {
+    position: absolute;
+    top: 0.75em;
+    right: 0.5em;
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: .25em solid transparent;
+    border-right: .25em solid transparent;
+    border-top: 0.375em solid rgba(0,0,0,1);
+    pointer-events: none;
+}
+
+.mdl-selectfield:focus {
+    outline:none;
+}
+
+.mdl-selectfield.invalid {
+    color:rgba(0,0,0,0.26);
+}
+
 @media screen and (max-width:767px) {
     .mdl-layout .mdl-layout__header {
         display:flex;
