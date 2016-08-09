@@ -66,6 +66,12 @@ a.mdl-btn-link {
     color:rgba(0,0,0,0.75);
 }
 
+.mdl-textfield {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 @media screen and (max-width:767px) {
     .mdl-layout .mdl-layout__header {
         display:flex;
