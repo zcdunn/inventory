@@ -7,21 +7,25 @@ var urlsToCache = [
     'views/allInventories.html',
     'views/editInventory.html',
     'views/editItem.html',
+    'views/removeItem.html',
     'views/viewInventory.html',
     'views/viewItem.html',
     'images/favicon.ico',
     'css/mdl-icons.css',
     'css/material.red-amber.min.css',
+    'css/mdl-jquery-modal-dialog.css',
     'css/style.css',
     'fonts/icons.woff2',
-    'js/angular.min.js',
     'js/angular-route.min.js',
-    'js/sw-toolbox.js',
-    'js/material.min.js',
+    'js/angular.min.js',
     'js/app.js',
+    'js/BreadCrumbService.js',
+    'js/Inventory.js',
     'js/InventoryController.js',
     'js/InventoryService.js',
-    'js/BreadCrumbService.js'
+    'js/material.min.js',
+    'js/mdl-jquery-modal-dialog.js',
+    'js/sw-toolbox.js'
 ];
 
 toolbox.options.debug = true;
