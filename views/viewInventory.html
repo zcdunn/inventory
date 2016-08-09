@@ -26,7 +26,11 @@
                 <h4 class="mdl-color-text--primary">Items</h4>
                 <ul id="items" class="mdl-list-icon mdl-list">
                     <li class="mdl-list__item" ng-repeat="item in inventory.items track by $index">
-                        <span class="item-name mdl-list__item-primary-content">{{item.name}}</span>
+                        <span class="item-name mdl-list__item-primary-content">
+                            <label class="mdl-js-ripple-effect">
+                                <a ng-href="view/{{inventory.id}}/item/{{item.id}}">{{item.name}}</a>
+                            </label>
+                        </span>
                         <!--
                         <span class="item-value">{{item.value}}</span>
                         <span class="mdl-list__item-secondary-action">
@@ -36,12 +40,12 @@
                         </span>
                         -->
                         <span class="mdl-list__item-secondary-action">
-                            <label class="mdl-js-ripple-effect" data-upgraded=",MaterialRipple">
+                            <label class="mdl-js-ripple-effect">
                                 <a ng-href="edit/{{inventory.id}}/item/{{item.id}}" class="mdl-btn-link"><i class="material-icons">edit</i></a>
                             </label>
                         </span>
                         <span class="mdl-list__item-secondary-action">
-                            <label class="mdl-js-ripple-effect" data-upgraded=",MaterialRipple">
+                            <label class="mdl-js-ripple-effect">
                                 <a ng-href="remove/{{inventory.id}}/item/{{item.id}}" class="mdl-btn-link"><i class="material-icons">clear</i></a>
                             </label>
                         </span>
