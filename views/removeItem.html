@@ -23,13 +23,6 @@
                 </p>
                 <form>
                     <fieldset>
-                        <div class="mdl-selectfield">
-                            <select id="toInventory" class="mdl-selectfield__select" ng-model="toInventory" ng-options="inv.id as inv.name for inv in inventories | filter: { id: '!' + inventory.id }">
-                            </select>
-                            <label for="toInventory" class="mdl-selectfield__label">Sell to</label>
-                        </div>
-                    </fieldset>
-                    <fieldset>
                         <legend class="mdl-color-text--primary">Price</legend>
                         <div class="mdl-textfield mdl-js-textfield">
                             <input type="number" id="gp" class="mdl-textfield__input" ng-model="coin.gp" autocomplete="off" />
@@ -42,6 +35,15 @@
                         <div class="mdl-textfield mdl-js-textfield">
                             <input type="number" id="cp" class="mdl-textfield__input" ng-model="coin.cp" autocomplete="off" />
                             <label for="cp" class="mdl-textfield__label">Copper Pieces</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="mdl-color-text--primary">Buyer</legend>
+                        <div class="mdl-selectfield">
+                            <select id="toInventory" class="mdl-selectfield__select" ng-model="toInventory" ng-options="inv.id as inv.name for inv in inventories | filter: { id: '!' + inventory.id }">
+                            </select>
+                            <label for="toInventory" class="mdl-selectfield__label">Sell to</label>
                         </div>
                     </fieldset>
 
