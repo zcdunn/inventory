@@ -104,6 +104,22 @@ a.mdl-btn-link {
     color:rgba(0,0,0,0.26);
 }
 
+.mdl-selectfield__label {
+    bottom: 0;
+    color: rgba(0,0,0,.26);
+    font-size: 16px;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    position: absolute;
+    display: block;
+    top: 24px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+}
+
 @media screen and (max-width:767px) {
     .mdl-layout .mdl-layout__header {
         display:flex;
