@@ -60,19 +60,21 @@ var Inventory = {
 
     sellItem: function(id, coin) {
         var item = this.removeItem(id);
+        var transaction = Object.assign({}, { gp: 0, sp: 0, cp: 0 }, coin);
 
-        if(!isNaN(coin.gp)) this.coin.gp += coin.gp;
-        if(!isNaN(coin.sp)) this.coin.sp += coin.sp;
-        if(!isNaN(coin.cp)) this.coin.cp += coin.cp;
+        this.coin.gp += transaction.gp;
+        this.coin.sp += transaction.sp;
+        this.coin.cp += transaction.cp;
 
         return item;
     },
 
     buyItem: function(item, coin) {
         this.items[item.id] = item;
+        var transaction = Object.assign({}, { gp: 0, sp: 0, cp: 0 }, coin);
 
-        if(!isNaN(coin.gp)) this.coin.gp -= coin.gp;
-        if(!isNaN(coin.sp)) this.coin.sp -= coin.sp;
-        if(!isNaN(coin.cp)) this.coin.cp -= coin.cp;
+        this.coin.gp -= transaction.gp;
+        this.coin.sp -= transaction.sp;
+        this.coin.cp -= transaction.cp;
     }
 };
