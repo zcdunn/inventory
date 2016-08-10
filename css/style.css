@@ -83,6 +83,10 @@ a.mdl-btn-link {
     padding: 20px 0;
 }
 
+.mdl-selectfield__select.ng-dirty + .mdl-textfield__label{
+    visibility:hidden;
+}
+
 .mdl-selectfield__select {
     -webkit-appearance: none;
     border: none;
@@ -90,7 +94,7 @@ a.mdl-btn-link {
     padding: 4px 0;
     font-size: 14px;
     background-color: transparent;
-    width: 10em;
+    width: 100%;
 }
 
 .mdl-selectfield__select:after {
