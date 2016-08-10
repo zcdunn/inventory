@@ -83,7 +83,7 @@ a.mdl-btn-link {
     padding: 20px 0;
 }
 
-.mdl-selectfield__select.ng-dirty + .mdl-textfield__label{
+.mdl-selectfield__select.ng-dirty + .mdl-selectfield__label {
     visibility:hidden;
 }
 
