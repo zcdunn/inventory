@@ -70,8 +70,8 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         var coin = $scope.coin;
         var soldItem = inventoryService.sellItemFromInventory(id, itemId, coin);
 
-        var buyer = $scope.buyer;
-        if(buyer) inventoryService.buyItemForInventory(buyer.id, soldItem, coin);
+        var buyerId = $scope.buyerId;
+        if(buyerId) inventoryService.buyItemForInventory(buyerId, soldItem, coin);
 
         $location.path(`/view/${id}`);
     };

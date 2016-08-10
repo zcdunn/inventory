@@ -41,9 +41,9 @@
                     <fieldset>
                         <legend class="mdl-color-text--primary">Buyer</legend>
                         <div class="mdl-selectfield">
-                            <select id="buyer" class="mdl-selectfield__select" ng-model="buyer" ng-options="inv.id as inv.name for inv in inventories | filter: { id: '!' + inventory.id }">
+                            <select id="buyerId" class="mdl-selectfield__select" ng-model="buyerId" ng-options="inv.id as inv.name for inv in inventories | filter: { id: '!' + inventory.id }">
                             </select>
-                            <label for="buyer" class="mdl-selectfield__label">Sell to</label>
+                            <label for="buyerId" class="mdl-selectfield__label">Sell to</label>
                         </div>
                     </fieldset>
 
