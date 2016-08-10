@@ -72,6 +72,17 @@ a.mdl-btn-link {
     margin-right:auto;
 }
 
+.mdl-selectfield {
+    position: relative;
+    font-size: 16px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 300px;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px 0;
+}
+
 .mdl-selectfield__select {
     -webkit-appearance: none;
     border: none;
