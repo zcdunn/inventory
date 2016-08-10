@@ -70,11 +70,8 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         var coin = $scope.coin;
         var soldItem = inventoryService.sellItemFromInventory(id, itemId, coin);
 
-        /* TODO: Add a destination inventory to removeItem form
-            var buyingInventory = $scope.buyingInventory;
-            if(buyingInventory)
-                inventoryService.buyItemForInventory(buyingInventory.id, soldItem, coin);
-        */
+        var buyer = $scope.buyer;
+        if(buyer) inventoryService.buyItemForInventory(buyer.id, soldItem, coin);
 
         $location.path(`/view/${id}`);
     };
