@@ -133,6 +133,10 @@ a.mdl-btn-link {
     text-align: left;
 }
 
+.mdl-card__actions.dialog-button-bar .mdl-button {
+    float:right;
+}
+
 @media screen and (max-width:767px) {
     .mdl-layout .mdl-layout__header {
         display:flex;
