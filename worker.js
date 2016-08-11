@@ -13,7 +13,6 @@ var urlsToCache = [
     'images/favicon.ico',
     'css/mdl-icons.css',
     'css/material.red-amber.min.css',
-    'css/mdl-jquery-modal-dialog.css',
     'css/style.css',
     'fonts/icons.woff2',
     'js/angular-route.min.js',
@@ -24,7 +23,6 @@ var urlsToCache = [
     'js/InventoryController.js',
     'js/InventoryService.js',
     'js/material.min.js',
-    'js/mdl-jquery-modal-dialog.js',
     'js/sw-toolbox.js'
 ];
 
