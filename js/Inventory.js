@@ -39,22 +39,18 @@ var Inventory = {
     },
 
     update: function(invUpdate) {
-        this.name = invUpdate.name || this.name;
-        if(invUpdate.coin !== undefined) {
-            if(invUpdate.coin.gp !== undefined) this.coin.gp = invUpdate.coin.gp;
-            if(invUpdate.coin.sp !== undefined) this.coin.sp = invUpdate.coin.sp;
-            if(invUpdate.coin.cp !== undefined) this.coin.cp = invUpdate.coin.cp;
-        }
-        if(invUpdate.items !== undefined) this.items = invUpdate.items;
+        var patchItems = Object.assign(this.items, invUpdate.items);
+        var patchCoin = Object.assign(this.coin, invUpdate.coin);
+        Object.assign(this, invUpdate);
+        this.items = patchItems;
+        this.coin = patchCoin;
     },
 
     updateItem: function(id, itemUpdate) {
         var item = this.items[id];
-
-        item.name = itemUpdate.name || item.name;
-        if(itemUpdate.value !== undefined) item.value = itemUpdate.value;
-        item.desc = itemUpdate.desc || item.desc;
-        if(itemUpdate.weight !== undefined) item.weight = itemUpdate.weight;
+        var patchValue = Object.assign(item.value, itemUpdate.value);
+        Object.assign(item, itemUpdate);
+        item.value = patchValue;
         return item;
     },
 
