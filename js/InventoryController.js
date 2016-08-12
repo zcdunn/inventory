@@ -5,11 +5,6 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.item = inventoryService.getItem(id, itemId) || {};
     $scope.breadCrumbs = breadCrumbService;
 
-    // TODO: can this method be moved into BreadCrumbService.js?
-    $scope.$on('$routeChangeSuccess', function (e, curr, prev) {
-        breadCrumbService.update(curr.locals.breadCrumb);
-    });
-
     $scope.editInventory = function(inv) {
         $location.path(`/edit/${inv.id}`);
     };
