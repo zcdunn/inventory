@@ -1,7 +1,7 @@
 myApp.service('breadCrumbService', function($location, $rootScope) {
 
     $rootScope.$on('$routeChangeSuccess', function (e, curr, prev) {
-        breadCrumbService.update(curr.locals.breadCrumb);
+        this.update(curr.locals.breadCrumb);
     });
 
     this.crumbs = [
