@@ -1,6 +1,7 @@
 {
     "name": "Inventory Manager",
     "short_name": "Inventories",
+    "description": "An inventory manager for D&D 5e",
     "icons": [
         {
             "src": "images/logo-36x36.png",
