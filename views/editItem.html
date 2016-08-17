@@ -15,31 +15,41 @@
                 </ul>
             </div>
             <div class="innerDiv">
-                <h3 class="mdl-color-text--primary">Edit Inventory</h3>
-                <form ng-submit="addInventory(inventory.id)">
+                <h3 class="mdl-color-text--primary">Edit Item</h3>
+                <form ng-submit="addItem(inventory.id, item.id)">
                     <fieldset>
                         <div class="mdl-textfield mdl-js-textfield">
-                            <input type="text" id="name" class="mdl-textfield__input" ng-model="inventory.name" autocomplete="off" required />
-                            <label for="name" class="mdl-textfield__label">Character/Shop Name</label>
+                            <input type="text" id="name" class="mdl-textfield__input" ng-model="item.name" autocomplete="off" autofocus required />
+                            <label for="name" class="mdl-textfield__label">Item Name</label>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
-                            <input type="number" id="gp" class="mdl-textfield__input" ng-model="inventory.coin.gp" autocomplete="off" required />
+                            <textarea id="desc" class="mdl-textfield__input" ng-model="item.desc" autocomplete="off" required></textarea>
+                            <label for="desc" class="mdl-textfield__label">Item Description</label>
+                        </div>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend class="mdl-color-text--primary">Value</legend>
+
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input type="number" id="gp" class="mdl-textfield__input" ng-model="item.value.gp" autocomplete="off" />
                             <label for="gp" class="mdl-textfield__label">Gold Pieces</label>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
-                            <input type="number" id="sp" class="mdl-textfield__input" ng-model="inventory.coin.sp" autocomplete="off" required />
+                            <input type="number" id="sp" class="mdl-textfield__input" ng-model="item.value.sp" autocomplete="off" />
                             <label for="sp" class="mdl-textfield__label">Silver Pieces</label>
                         </div>
 
                         <div class="mdl-textfield mdl-js-textfield">
-                            <input type="number" id="cp" class="mdl-textfield__input" ng-model="inventory.coin.cp" autocomplete="off" required />
+                            <input type="number" id="cp" class="mdl-textfield__input" ng-model="item.value.cp" autocomplete="off" />
                             <label for="cp" class="mdl-textfield__label">Copper Pieces</label>
                         </div>
                     </fieldset>
 
                     <div class="mdl-card__actions dialog-button-bar">
+                        <!-- mdl-button--raised -->
                         <input type="submit" class="mdl-button mdl-js-button mdl-button--colored" value="Done" />
                     </div>
                 </form>

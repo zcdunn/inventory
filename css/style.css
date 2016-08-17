@@ -2,22 +2,36 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-label {
-    padding:5px;
+header .mdl-layout__header-row {
+    padding:0px 16px;
 }
 
-input, textarea {
-    margin:5px 10px;
+header .header-icon {
+    width:56px;
 }
 
-span.x {
-    float:right;
+.container {
+    padding-left:20px;
+    padding-right:20px;
 }
 
-span.x:after {
-    content: "x";
-    color:gray;
-    cursor:pointer;
+.fab {
+    position:fixed;
+    display:block;
+    bottom:0;
+    right:0;
+    margin-right:40px;
+    margin-bottom:40px;
+    z-index:900;
+    transition:margin .25s ease-out;
+}
+
+span.item-value {
+    margin-left:3em;
+}
+
+span.item-value:after {
+    content: " (gp)";
 }
 
 fieldset span {
@@ -28,9 +42,132 @@ section {
     padding:10px;
 }
 
-@media screen and (max-width:767px) {
+.coin span {
+    margin:10px;
+}
 
+.mdl-crumbs ul {
+    list-style:none;
+    margin:0px;
+    padding:0;
+}
+
+.mdl-crumbs ul li {
+    display:inline;
+}
+
+.mdl-crumbs ul li:not(:last-of-type):after {
+    content:" > ";
+    padding-left:3px;
+    padding-right:3px;
+}
+
+a.mdl-btn-link {
+    color:rgba(0,0,0,0.75);
+}
+
+.mdl-textfield, .mdl-selectfield {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.mdl-selectfield {
+    position: relative;
+    font-size: 16px;
+    box-sizing: border-box;
+    width: 300px;
+    max-width: 100%;
+    padding: 20px 0;
+}
+
+.mdl-selectfield__select.ng-dirty + .mdl-selectfield__label {
+    visibility:hidden;
+}
+
+.mdl-selectfield__select {
+    -webkit-appearance: none;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+    padding: 4px 0;
+    font-size: 14px;
+    background-color: transparent;
+    width: 100%;
+}
+
+.mdl-selectfield__select:after {
+    position: absolute;
+    top: 0.75em;
+    right: 0.5em;
+    width: 0;
+    height: 0;
+    padding: 0;
+    content: '';
+    border-left: .25em solid transparent;
+    border-right: .25em solid transparent;
+    border-top: 0.375em solid rgba(0,0,0,1);
+    pointer-events: none;
+}
+
+.mdl-selectfield__select:focus {
+    outline:none;
+}
+
+.mdl-selectfield__select.invalid {
+    color:rgba(0,0,0,0.26);
+}
+
+.mdl-selectfield__label {
+    bottom: 0;
+    color: rgba(0,0,0,.26);
+    font-size: 16px;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    position: absolute;
+    display: block;
+    top: 24px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: left;
+}
+
+.mdl-card__actions.dialog-button-bar .mdl-button {
+    float:right;
+}
+
+@media screen and (max-width:767px) {
+    .mdl-layout .mdl-layout__header {
+        display:flex;
+    }
+
+    .innerDiv {
+        width:100%;
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .mdl-layout__content {
+        flex:1 0 auto;
+    }
 }
 
 @media screen and (min-width:768px) {
+    #items li:hover {
+        background:lightgray;
+    }
+
+    #view .container {
+        margin:auto;
+        width:50%;
+    }
+
+    .mdl-crumbs {
+        width:100%;
+    }
+
+    .innerDiv {
+        width:100%;
+    }
 }

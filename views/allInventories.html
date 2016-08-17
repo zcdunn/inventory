@@ -1,8 +1,74 @@
-<ul>
-    <li ng-repeat="inv in inventories track by $index">
-        <span>
-            <span ng-click="editInventory(inv)">{{inv.name}}</span>
-        </span>
-    </li>
-</ul>
-<button ng-click="newInventory()">New Inventory</button>
+<section class="section--header mdl-grid mdl-grid--no-spacing mdl-cell--hide-tablet mdl-cell--hide-phone">
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+    <div class="mdl-content mdl-color--white mdl-shadow--6dp content mdl-cell mdl-cell--8-col mdl-cell--hide-tablet mdl-cell--hide-phone">
+        <!--<img src="images/something.png" alt="" />-->
+    </div>
+</section>
+<section class="section--main">
+    <div class="mdl-container mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+        <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <div class="mdl-crumbs mdl-color-text--grey-500">
+                <ul>
+                    <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
+                    <li>{{breadCrumbs.current.display}}</li>
+                </ul>
+            </div>
+            <div class="innerDiv">
+                <h3 class="mdl-color-text--primary">Inventories</h3>
+                <ul class="mdl-list-icon mdl-list">
+                    <li id="{{inv.id}}" class="mdl-list__item" ng-repeat="inv in inventories track by $index" ng-hide="inv.delete">
+                        <span class="mdl-list__item-primary-content">
+                            <i class="material-icons mdl-list__item-icon">shopping_basket</i>
+                            <!--
+                                {{
+                                    (inv.type == 'shop' && shopping_basket)
+                                    || (inv.type == 'character' && person)
+                                }}
+                            -->
+                            <a ng-href="view/{{inv.id}}">{{inv.name}}</a>
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                            <label class="mdl-js-ripple-effect">
+                                <a ng-href="edit/{{inv.id}}" class="mdl-btn-link"><i class="material-icons">edit</i></a>
+                            </label>
+                        </span>
+                        <span class="mdl-list__item-secondary-action">
+                            <label class="mdl-js-ripple-effect">
+                                <a ng-click="removeInventory(inv.id)" class="mdl-btn-link"><i class="material-icons">clear</i></a>
+                            </label>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--
+<section class="section--footer mdl-color--white mdl-grid">
+    <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+        <div class="section__circle-container__circle mdl-color--accent section__circle--big"></div>
+    </div>
+    <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+        <h5>What If? is the work of Randall Munroe</h5>
+        <p>
+            Check out the links below to see more of his work.
+        </p>
+    </div>
+    <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+        <div class="section__circle-container__circle mdl-color--accent section__circle--big"></div>
+    </div>
+    <div class="section__text mdl-cell mdl-cell--4-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+        <h5>This site works best in Chrome, Firefox, or Opera</h5>
+        <p>
+            The site is designed to support offline functionality. Other browsers
+            don't yet support the features required for this. The site should still
+            work in the browsers but won't support its advanced features.
+        </p>
+    </div>
+</section>
+-->
+<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent fab" ng-click="newInventory()">
+    <i class="material-icons" role="presentation">add</i>
+    <span class="visuallyhidden">Add Inventory</span>
+</button>

@@ -1,4 +1,4 @@
-# What If?
+# Inventory Manager
 
 An inventory manager for D&D 5th Edition.
 
