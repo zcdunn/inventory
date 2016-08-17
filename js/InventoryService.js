@@ -153,10 +153,6 @@ myApp.service('inventoryService', function() {
         this.store();
     };
 
-    this.storeInventories = function() {
-        localStorage.inventories = JSON.stringify(this.inventories);
-    };
-
     this.store = function() {
         var inventories = this.inventories;
         return new Promise(function(resolve, reject) {
