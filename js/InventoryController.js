@@ -25,17 +25,19 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         var invToDelete = inventoryService.getInventory(id);
         invToDelete.delete = true;
 
+        /*
         var deleteTimer = $timeout(function() {
             if(invToDelete.delete)
                 inventoryService.removeInventory(id);
         }, 6000);
+        */
 
         var notification = document.querySelector('.mdl-js-snackbar');
         notification.MaterialSnackbar.showSnackbar({
             message: `Deleted ${invToDelete.name}`,
             actionText: 'Undo',
             actionHandler: function() {
-                $timeout.cancel(deleteTimer);
+                // $timeout.cancel(deleteTimer);
                 $scope.$apply(function() {
                     delete invToDelete.delete;
                 });

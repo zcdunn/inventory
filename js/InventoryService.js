@@ -1,4 +1,16 @@
-myApp.service('inventoryService', function() {
+myApp.service('inventoryService', function($window) {
+
+    var $inventoryService = this;
+    $window.addEventListener('unload', function(event) {
+        var inventories = $inventoryService.inventories;
+        for(var key in inventories) {
+            if(inventories.hasOwnProperty(key) && inventories[key].delete) {
+                var id = inventories[key].id;
+                $inventoryService.removeInventory(id);
+            }
+        }
+    });
+
     this.newInventory = function(name, coin, items, id) {
         var inv = Inventory.create(name, coin, items, id);
         this.inventories[inv.id] = inv;
