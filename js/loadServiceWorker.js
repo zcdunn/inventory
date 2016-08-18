@@ -1,3 +1,20 @@
+window.addEventListener('load', function() {
+    function updateOnlineStatus(event) {
+        var notification = document.querySelector('.mdl-js-snackbar');
+        notification.MaterialSnackbar.showSnackbar({
+            message: navigator.onLine ? "You are online" : "You are offline",
+            actionText: 'Dismiss',
+            actionHandler: function() {
+                notification.classList.remove("mdl-snackbar--active");
+            },
+            timeout: 5000
+        });
+    }
+
+    window.addEventListener('online', updateOnlineStatus);
+    window.addEventListener('offline', updateOnlineStatus);
+});
+
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('worker.js')
         .then(reg => {
