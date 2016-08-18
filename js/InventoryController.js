@@ -5,6 +5,10 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.item = inventoryService.getItem(id, itemId) || {};
     $scope.breadCrumbs = breadCrumbService;
 
+    $scope.$on('$routeChangeSuccess', function (e, curr, prev) {
+        document.querySelector('.mdl-js-snackbar').classList.remove("mdl-snackbar--active");
+    });
+
     $scope.editInventory = function(inv) {
         $location.path(`/edit/${inv.id}`);
     };

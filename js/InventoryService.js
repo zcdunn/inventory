@@ -5,8 +5,7 @@ myApp.service('inventoryService', function($window) {
         var inventories = $inventoryService.inventories;
         for(var key in inventories) {
             if(inventories.hasOwnProperty(key) && inventories[key].delete) {
-                var id = inventories[key].id;
-                $inventoryService.removeInventory(id);
+                $inventoryService.removeInventory(key);
             }
         }
     });
