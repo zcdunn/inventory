@@ -1,8 +1,9 @@
 window.addEventListener('load', function() {
     function updateOnlineStatus(event) {
+        var message = navigator.onLine ? "You are online" : "You are offline";
         var notification = document.querySelector('.mdl-js-snackbar');
         notification.MaterialSnackbar.showSnackbar({
-            message: navigator.onLine ? "You are online" : "You are offline",
+            message,
             actionText: 'Dismiss',
             actionHandler: function() {
                 notification.classList.remove("mdl-snackbar--active");
