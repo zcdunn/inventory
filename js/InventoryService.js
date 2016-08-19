@@ -179,15 +179,11 @@ myApp.service('inventoryService', function($window) {
 
     this.getDefaults = function() {
         var one = Inventory.create('Lionshield Coster', { gp: 500, sp: 0, cp: 0 }, {}, '76ee1ec6-b9db-a9c6-48ae-4f452273cfb8');
-        var two = Inventory.create('Phandalin Smithy', { gp: 250, sp: 0, cp: 0 }, {}, 'd03204e1-8f7c-4905-4d9f-de161c7b4f14');
-        var three = Inventory.create("Phandalin Miner's Exchange", { gp: 450, sp: 325, cp: 750 }, {}, '9ef00a86-f484-5a00-b000-56dbfbb37664');
-        var four = Inventory.create("Barthen's Provisions", { gp: 300, sp: 200, cp: 500 }, {}, '3d5b9c57-879a-0009-e686-9dac27e6b0f5');
+        var two = Inventory.create("Barthen's Provisions", { gp: 300, sp: 200, cp: 500 }, {}, '3d5b9c57-879a-0009-e686-9dac27e6b0f5');
 
         var inv = {};
         inv[one.id] = one;
         inv[two.id] = two;
-        inv[three.id] = three;
-        inv[four.id] = four;
 
         return inv;
     };

@@ -5,9 +5,7 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
     $scope.item = inventoryService.getItem(id, itemId) || {};
     $scope.breadCrumbs = breadCrumbService;
 
-    $scope.$on('$routeChangeSuccess', function (e, curr, prev) {
-        document.querySelector('.mdl-js-snackbar').classList.remove("mdl-snackbar--active");
-    });
+    $scope.$on('$routeChangeSuccess', hideSnackbar);
 
     $scope.editInventory = function(inv) {
         $location.path(`/edit/${inv.id}`);
@@ -29,22 +27,15 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         var invToDelete = inventoryService.getInventory(id);
         invToDelete.delete = true;
 
-        /*
-        var deleteTimer = $timeout(function() {
-            if(invToDelete.delete)
-                inventoryService.removeInventory(id);
-        }, 6000);
-        */
-
         var notification = document.querySelector('.mdl-js-snackbar');
         notification.MaterialSnackbar.showSnackbar({
             message: `Deleted ${invToDelete.name}`,
             actionText: 'Undo',
             actionHandler: function() {
-                // $timeout.cancel(deleteTimer);
                 $scope.$apply(function() {
                     delete invToDelete.delete;
                 });
+                hideSnackbar();
             },
             timeout: 3000
         });

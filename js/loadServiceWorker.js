@@ -1,3 +1,7 @@
+function hideSnackbar() {
+    document.querySelector('.mdl-js-snackbar').classList.remove("mdl-snackbar--active");
+}
+
 window.addEventListener('load', function() {
     function updateOnlineStatus(event) {
         var message = navigator.onLine ? "You are online" : "You are offline";
@@ -5,9 +9,7 @@ window.addEventListener('load', function() {
         notification.MaterialSnackbar.showSnackbar({
             message,
             actionText: 'Dismiss',
-            actionHandler: function() {
-                notification.classList.remove("mdl-snackbar--active");
-            },
+            actionHandler: hideSnackbar,
             timeout: 5000
         });
     }
@@ -28,9 +30,7 @@ if('serviceWorker' in navigator) {
                     notification.MaterialSnackbar.showSnackbar({
                         message: 'Ready to work offline',
                         actionText: 'Dismiss',
-                        actionHandler: function() {
-                            notification.classList.remove("mdl-snackbar--active");
-                        },
+                        actionHandler: hideSnackbar,
                         timeout: 5000
                     });
                 }
