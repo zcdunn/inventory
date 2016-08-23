@@ -2,6 +2,12 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.ng-scope .mdl-snackbar {
+    width:initial;
+    left:24px;
+    bottom:24px;
+}
+
 header .mdl-layout__header-row {
     padding:0px 16px;
 }
