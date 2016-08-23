@@ -24,6 +24,7 @@ var urlsToCache = [
     'css/material.red-amber.min.css',
     'css/style.css',
     'fonts/icons.woff2',
+    'js/angular-animate.min.js',
     'js/angular-route.min.js',
     'js/angular.min.js',
     'js/app.js',

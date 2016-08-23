@@ -1,5 +1,5 @@
 var myApp = angular
-    .module('inventory', [ 'ngRoute' ])
+    .module('inventory', [ 'ngRoute', 'ngAnimate' ])
     .config(function($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
