@@ -7,8 +7,8 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
 
     $scope.$on('$routeChangeSuccess', hideSnackbar);
 
-    $scope.editInventory = function(inv) {
-        $location.path(`/edit/${inv.id}`);
+    $scope.editInventory = function(id) {
+        $location.path(`/edit/${id}`);
     };
 
     $scope.newInventory = function() {
