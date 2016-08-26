@@ -7,36 +7,11 @@
 <section class="section--main">
     <div class="mdl-container mdl-grid">
         <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-        <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-            <div class="mdl-crumbs mdl-color-text--grey-500">
-                <ul>
-                    <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
-                    <li>{{breadCrumbs.current.display}}</li>
-                </ul>
-            </div>
-            <!--
-            <div class="innerDiv">
-                <h3 class="mdl-color-text--primary">Inventories</h3>
-                <ul class="mdl-list-icon mdl-list">
-                    <li id="{{inv.id}}" class="mdl-list__item" ng-repeat="inv in inventories track by $index" ng-hide="inv.delete">
-                        <span class="mdl-list__item-primary-content">
-                            <i class="material-icons mdl-list__item-icon">shopping_basket</i>
-                            <a ng-href="view/{{inv.id}}">{{inv.name}}</a>
-                        </span>
-                        <span class="mdl-list__item-secondary-action">
-                            <label class="mdl-js-ripple-effect">
-                                <a ng-href="edit/{{inv.id}}" class="mdl-btn-link"><i class="material-icons">edit</i></a>
-                            </label>
-                        </span>
-                        <span class="mdl-list__item-secondary-action">
-                            <label class="mdl-js-ripple-effect">
-                                <a ng-click="removeInventory(inv.id)" class="mdl-btn-link"><i class="material-icons">clear</i></a>
-                            </label>
-                        </span>
-                    </li>
-                </ul>
-            </div>
-            -->
+        <div class="mdl-crumbs mdl-color-text--grey-500">
+            <ul>
+                <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
+                <li>{{breadCrumbs.current.display}}</li>
+            </ul>
         </div>
         <div id="{{inv.id}}" class="mdl-card mdl-grid mdl-shadow--4dp ng-scope content mdl-cell mdl-cell--8-col" ng-repeat="inv in inventories track by $index" ng-hide="inv.delete">
             <div class="mdl-card__title">
