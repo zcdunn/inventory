@@ -14,9 +14,9 @@
                     <li>{{breadCrumbs.current.display}}</li>
                 </ul>
             </div>
+            <!--
             <div class="innerDiv">
                 <h3 class="mdl-color-text--primary">Inventories</h3>
-                <!--
                 <ul class="mdl-list-icon mdl-list">
                     <li id="{{inv.id}}" class="mdl-list__item" ng-repeat="inv in inventories track by $index" ng-hide="inv.delete">
                         <span class="mdl-list__item-primary-content">
@@ -35,10 +35,10 @@
                         </span>
                     </li>
                 </ul>
-                -->
             </div>
+            -->
         </div>
-        <div id="{{inv.id}}" class="mdl-card mdl-content mdl-shadow--2dp" ng-repeat="inv in inventories track by $index" ng-hide="inv.delete">
+        <div id="{{inv.id}}" class="mdl-card mdl-grid mdl-shadow--4dp ng-scope content mdl-cell mdl-cell--8-col" ng-repeat="inv in inventories track by $index" ng-hide="inv.delete">
             <div class="mdl-card__title">
                 <h2 class="mdl-card__title-text">{{inv.name}}</h2>
             </div>
