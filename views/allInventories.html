@@ -15,14 +15,14 @@
         </div>
         <div id="{{inv.id}}" class="mdl-card mdl-grid mdl-shadow--4dp ng-scope content mdl-cell mdl-cell--8-col" ng-repeat="inv in inventories track by $index" ng-hide="inv.delete">
             <div class="mdl-card__title">
-                <h2 class="mdl-card__title-text">{{inv.name}}</h2>
+                <h2 class="mdl-card__title-text mdl-color-text--primary">{{inv.name}}</h2>
             </div>
             <div class="mdl-card__supporting-text">
-                <p class="coin">
+                <span class="coin">
                     <span>GP: {{inv.coin.gp}}</span>
                     <span>SP: {{inv.coin.sp}}</span>
                     <span>CP: {{inv.coin.cp}}</span>
-                </p>
+                </span>
             </div>
             <div class="mdl-card__actions mdl-card--border">
                 <a ng-href="view/{{inv.id}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
