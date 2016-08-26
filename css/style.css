@@ -137,6 +137,14 @@ a.mdl-btn-link {
     float:right;
 }
 
+@media screen and (max-width:420px) {
+    .ng-scope .mdl-snackbar {
+        width:initial;
+        left:24px;
+        bottom:24px;
+    }
+}
+
 @media screen and (max-width:767px) {
     .mdl-layout .mdl-layout__header {
         display:flex;
@@ -150,12 +158,6 @@ a.mdl-btn-link {
 
     .mdl-layout__content {
         flex:1 0 auto;
-    }
-
-    .ng-scope .mdl-snackbar {
-        width:initial;
-        left:24px;
-        bottom:24px;
     }
 }
 
