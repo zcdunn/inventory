@@ -16,16 +16,11 @@
             </div>
             <div class="innerDiv">
                 <h3 class="mdl-color-text--primary">Inventories</h3>
+                <!--
                 <ul class="mdl-list-icon mdl-list">
                     <li id="{{inv.id}}" class="mdl-list__item" ng-repeat="inv in inventories track by $index" ng-hide="inv.delete">
                         <span class="mdl-list__item-primary-content">
                             <i class="material-icons mdl-list__item-icon">shopping_basket</i>
-                            <!--
-                                {{
-                                    (inv.type == 'shop' && shopping_basket)
-                                    || (inv.type == 'character' && person)
-                                }}
-                            -->
                             <a ng-href="view/{{inv.id}}">{{inv.name}}</a>
                         </span>
                         <span class="mdl-list__item-secondary-action">
@@ -40,6 +35,32 @@
                         </span>
                     </li>
                 </ul>
+                -->
+            </div>
+        </div>
+        <div id="{{inv.id}}" class="mdl-card mdl-content mdl-shadow--2dp" ng-repeat="inv in inventories track by $index" ng-hide="inv.delete">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">{{inv.name}}</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                <p class="coin">
+                    <span>GP: {{inv.coin.gp}}</span>
+                    <span>SP: {{inv.coin.sp}}</span>
+                    <span>CP: {{inv.coin.cp}}</span>
+                </p>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a ng-href="view/{{inv.id}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    View Inventory
+                </a>
+            </div>
+            <div class="mdl-card__menu">
+                <button ng-click="editInventory(inv.id)" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button ng-click="removeInventory(inv.id)" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <i class="material-icons">clear</i>
+                </button>
             </div>
         </div>
     </div>
