@@ -2,6 +2,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+.mdl-container .mdl-card {
+    margin-left:auto;
+    margin-right:auto;
+
+
 header .mdl-layout__header-row {
     padding:0px 16px;
 }
@@ -150,12 +155,6 @@ a.mdl-btn-link {
         display:flex;
     }
 
-    .innerDiv {
-        width:100%;
-        margin-left:auto;
-        margin-right:auto;
-    }
-
     .mdl-layout__content {
         flex:1 0 auto;
     }
@@ -164,11 +163,6 @@ a.mdl-btn-link {
 @media screen and (min-width:768px) {
     #items li:hover {
         background:lightgray;
-    }
-
-    #view .container {
-        margin:auto;
-        width:50%;
     }
 
     .mdl-crumbs {
