@@ -5,15 +5,15 @@
     </div>
 </section>
 <section class="section--main">
+    <div class="mdl-crumbs mdl-color-text--grey-500">
+        <ul>
+            <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
+            <li>{{breadCrumbs.current.display}}</li>
+        </ul>
+    </div>
     <div class="mdl-container mdl-grid">
         <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-        <div class="mdl-crumbs mdl-color-text--grey-500">
-            <ul>
-                <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
-                <li>{{breadCrumbs.current.display}}</li>
-            </ul>
-        </div>
-        <div id="{{inv.id}}" class="mdl-card mdl-grid mdl-shadow--4dp ng-scope content mdl-cell mdl-cell--8-col" ng-repeat="inv in inventories track by $index" ng-hide="inv.delete">
+        <div id="{{inv.id}}" class="mdl-card mdl-grid mdl-shadow--4dp ng-scope content mdl-cell mdl-cell--6-col" ng-repeat="inv in inventories track by $index" ng-hide="inv.delete">
             <div class="mdl-card__title">
                 <h2 class="mdl-card__title-text mdl-color-text--primary">{{inv.name}}</h2>
             </div>
