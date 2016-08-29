@@ -11,6 +11,14 @@ myApp.controller('InventoryController', function($scope, $window, $location, $ro
         $location.path(`/edit/${id}`);
     };
 
+    $scope.editItem = function(id, itemId) {
+        $location.path(`edit/${id}/item/${itemId}`);
+    };
+
+    $scope.goToRemoveItem = function(id, itemId) {
+        $location.path(`remove/${id}/item/${itemId}`);
+    };
+
     $scope.newInventory = function() {
         $location.path('/new');
     };

@@ -7,50 +7,50 @@
 <section class="section--main">
     <div class="mdl-container mdl-grid">
         <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-        <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-            <div class="mdl-crumbs mdl-color-text--grey-500">
-                <ul>
-                    <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
-                    <li>{{breadCrumbs.current.display}}</li>
-                </ul>
+        <div class="mdl-crumbs mdl-color-text--grey-500">
+            <ul>
+                <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
+                <li>{{breadCrumbs.current.display}}</li>
+            </ul>
+        </div>
+        <div id="{{inventory.id}}" class="mdl-card mdl-grid mdl-shadow--4dp ng-scope content mdl-cell mdl-cell--8-col">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text mdl-color-text--primary">{{inventory.name}}</h2>
             </div>
-            <div class="innerDiv">
-                <h3 class="mdl-color-text--primary">{{inventory.name}}</h3>
-                <h4 class="mdl-color-text--primary">Available Coin</h4>
-                <p class="coin">
+            <div class="mdl-card__supporting-text">
+                <span class="coin">
                     <span>GP: {{inventory.coin.gp}}</span>
                     <span>SP: {{inventory.coin.sp}}</span>
                     <span>CP: {{inventory.coin.cp}}</span>
-                </p>
-
-                <h4 class="mdl-color-text--primary">Items</h4>
-                <ul id="items" class="mdl-list-icon mdl-list">
-                    <li class="mdl-list__item" ng-repeat="item in inventory.items track by $index">
-                        <span class="item-name mdl-list__item-primary-content">
-                            <label class="mdl-js-ripple-effect">
-                                <a ng-href="view/{{inventory.id}}/item/{{item.id}}">{{item.name}}</a>
-                            </label>
-                        </span>
-                        <!--
-                        <span class="item-value">{{item.value}}</span>
-                        <span class="mdl-list__item-secondary-action">
-                            <label class="mdl-js-ripple-effect" data-upgraded=",MaterialRipple">
-                                <i class="material-icons">xx</i>
-                            </label>
-                        </span>
-                        -->
-                        <span class="mdl-list__item-secondary-action">
-                            <label class="mdl-js-ripple-effect">
-                                <a ng-href="edit/{{inventory.id}}/item/{{item.id}}" class="mdl-btn-link"><i class="material-icons">edit</i></a>
-                            </label>
-                        </span>
-                        <span class="mdl-list__item-secondary-action">
-                            <label class="mdl-js-ripple-effect">
-                                <a ng-href="remove/{{inventory.id}}/item/{{item.id}}" class="mdl-btn-link"><i class="material-icons">clear</i></a>
-                            </label>
-                        </span>
-                    </li>
-                </ul>
+                </span>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+            </div>
+            <div class="mdl-card__menu">
+                <button ng-click="editInventory(inv.id)" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <i class="material-icons">edit</i>
+                </button>
+            </div>
+        </div>
+        <div id="{{inv.id}}" class="mdl-card mdl-grid mdl-shadow--4dp ng-scope content mdl-cell mdl-cell--8-col" ng-repeat="item in inventory.items track by $index">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text mdl-color-text--primary">{{item.name}}</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                {{item.desc}}
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a ng-href="view/{{inventory.id}}/item/{{item.id}}" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                    View Item
+                </a>
+            </div>
+            <div class="mdl-card__menu">
+                <button ng-click="editItem(inventory.id,item.id)" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <i class="material-icons">edit</i>
+                </button>
+                <button ng-click="goToRemoveItem(inventory.id,item.id)" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <i class="material-icons">clear</i>
+                </button>
             </div>
         </div>
     </div>
