@@ -7,6 +7,10 @@ body {
     margin-right:auto;
 }
 
+.mdl-header-cell {
+    margin-top:8px;
+}
+
 header .mdl-layout__header-row {
     padding:0px 16px;
 }
