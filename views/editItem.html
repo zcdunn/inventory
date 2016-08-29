@@ -5,18 +5,19 @@
     </div>
 </section>
 <section class="section--main">
+    <div class="mdl-crumbs mdl-color-text--grey-500">
+        <ul>
+            <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
+            <li>{{breadCrumbs.current.display}}</li>
+        </ul>
+    </div>
     <div class="mdl-container mdl-grid">
-        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-        <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-            <div class="mdl-crumbs mdl-color-text--grey-500">
-                <ul>
-                    <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
-                    <li>{{breadCrumbs.current.display}}</li>
-                </ul>
+        <div class="mdl-card mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text mdl-color-text--primary">Edit Item</h2>
             </div>
-            <div class="innerDiv">
-                <h3 class="mdl-color-text--primary">Edit Item</h3>
-                <form ng-submit="addItem(inventory.id, item.id)">
+            <div class="mdl-card__supporting-text">
+                <form class="mdl-form">
                     <fieldset>
                         <div class="mdl-textfield mdl-js-textfield">
                             <input type="text" id="name" class="mdl-textfield__input" ng-model="item.name" autocomplete="off" autofocus required />
@@ -53,6 +54,11 @@
                         <input type="submit" class="mdl-button mdl-js-button mdl-button--colored" value="Done" />
                     </div>
                 </form>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <div class="mdl-card__actions dialog-button-bar">
+                    <input type="submit" class="mdl-button mdl-js-button mdl-button--colored" value="Done" ng-click="addItem(inventory.id, item.id)" />
+                </div>
             </div>
         </div>
     </div>
