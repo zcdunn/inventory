@@ -5,23 +5,24 @@
     </div>
 </section>
 <section class="section--main">
+    <div class="mdl-crumbs mdl-color-text--grey-500">
+        <ul>
+            <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
+            <li>{{breadCrumbs.current.display}}</li>
+        </ul>
+    </div>
     <div class="mdl-container mdl-grid">
-        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
-        <div class="mdl-content mdl-grid mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
-            <div class="mdl-crumbs mdl-color-text--grey-500">
-                <ul>
-                    <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
-                    <li>{{breadCrumbs.current.display}}</li>
-                </ul>
+        <div class="mdl-card mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <div class="mdl-card__title">
+                <h2 class="mdl-color-text--primary">Remove Item</h2>
             </div>
-            <div class="innerDiv">
-                <h3 class="mdl-color-text--primary">Remove Item</h3>
+            <div class="mdl-card__supporting-text">
                 <p>
                     Are you sure you want to remove this item? <br />
                     The Remove button will remove the item without adding any coin to the inventory.
                     If the item is being sold, enter the sell price below and press the Sell button.
                 </p>
-                <form>
+                <form class="mdl-form">
                     <fieldset>
                         <legend class="mdl-color-text--primary">Price</legend>
                         <div class="mdl-textfield mdl-js-textfield">
@@ -46,13 +47,14 @@
                             <label for="buyerId" class="mdl-selectfield__label">Sell to</label>
                         </div>
                     </fieldset>
-
-                    <div class="mdl-card__actions dialog-button-bar">
-                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="sellItem(inventory.id, item.id)" ng-disabled="!(coin.gp || coin.sp || coin.cp) && !buyerId">Sell</button>
-                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="removeItem(inventory.id, item.id)">Remove</button>
-                        <button class="mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="cancelRemoveItem(inventory.id)">Cancel</button>
-                    </div>
                 </form>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <div class="mdl-card__actions dialog-button-bar">
+                    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="sellItem(inventory.id, item.id)" ng-disabled="!(coin.gp || coin.sp || coin.cp) && !buyerId">Sell</button>
+                    <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" ng-click="removeItem(inventory.id, item.id)">Remove</button>
+                    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" ng-click="cancelRemoveItem(inventory.id)">Cancel</button>
+                </div>
             </div>
         </div>
     </div>
