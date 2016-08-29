@@ -23,6 +23,15 @@
         <link rel="stylesheet" href="css/mdl-icons.css">
         <link rel="stylesheet" href="css/material.red-amber.min.css">
         <link rel="stylesheet" href="css/style.css">
+        <script>
+            (function() {
+                var redirect = sessionStorage.redirect;
+                delete sessionStorage.redirect;
+                if(redirect && redirect != location.href) {
+                    history.replaceState(null  null, redirect);
+                }
+            })();
+        </script>
         <script src="js/angular.min.js"></script>
         <script src="js/angular-route.min.js"></script>
         <script src="js/angular-animate.min.js"></script>
