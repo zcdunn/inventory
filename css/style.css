@@ -88,7 +88,7 @@ section {
     height:0;
     border-top:50px solid transparent;
     border-bottom:50px solid transparent;
-    border-left:30px solid transparent;
+    border-left:30px solid white;
     position:absolute;
     top:50%;
     margin-top:-50px;
