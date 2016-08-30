@@ -61,18 +61,59 @@ section {
 
 .mdl-crumbs ul {
     list-style:none;
+    overflow:hidden
     margin:0px;
     padding:0;
+    font:12px Helvetica, Arial, sans-serif;
 }
 
 .mdl-crumbs ul li {
-    display:inline;
+    float:left;
 }
 
-.mdl-crumbs ul li:not(:last-of-type):after {
-    content:" > ";
-    padding-left:3px;
-    padding-right:3px;
+.mdl-crumbs ul li a {
+    text-decoration:none;
+    background:rgb(244,67,54);
+    position:relative;
+    display:block;
+    float:left;
+    color:white;
+    padding: 10px 0 10px 20px;
+}
+
+.mdl-crumbs ul li a:before {
+    content:" ";
+    display:block;
+    width:0;
+    height:0;
+    border-top:50px solid transparent;
+    border-bottom:50px solid transparent;
+    border-left:30px solid transparent;
+    position:absolute;
+    top:50%;
+    margin-top:-50px;
+    margin-left:1px;
+    left:100%;
+    z-index:1;
+}
+
+.mdl-crumbs ul li a:after {
+    content:" ";
+    display:block;
+    width:0;
+    height:0;
+    border-top:50px solid transparent;
+    border-bottom:50px solid transparent;
+    border-left:30px solid rgb(244,67,54);
+    position:absolute;
+    top:50%;
+    margin-top:-50px;
+    left:100%;
+    z-index:2;
+}
+
+.mdl-crumbs ul li:not(:first-of-type) a {
+    margin-left:15px;
 }
 
 a.mdl-btn-link {

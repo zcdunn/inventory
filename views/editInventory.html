@@ -8,7 +8,7 @@
     <div class="mdl-crumbs mdl-color-text--grey-500">
         <ul>
             <li ng-repeat="crumb in breadCrumbs.crumbs track by $index"><a ng-href="{{crumb.path}}">{{crumb.display}}</a></li>
-            <li>{{breadCrumbs.current.display}}</li>
+            <li><a href="javascript:void(0);">{{breadCrumbs.current.display}}</a></li>
         </ul>
     </div>
     <div class="mdl-container mdl-grid">
