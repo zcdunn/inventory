@@ -61,7 +61,7 @@ section {
 
 .mdl-crumbs ul {
     list-style:none;
-    overflow:hidden
+    overflow:hidden;
     margin:0px;
     padding:0;
     font:12px Helvetica, Arial, sans-serif;
